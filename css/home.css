@@ -4,7 +4,7 @@
 .hero {
   position: relative;
   padding: 140px 0 80px;
-  background: var(--color-white);
+  background: #FAFAF9;
   overflow: hidden;
 }
 
@@ -174,7 +174,7 @@
    PROGRAMS LIST
 ═══════════════════════════════ */
 .programs-section {
-  background: #F9FAFB;
+  background: #F5F4F0;
 }
 
 .programs-section .section-eyebrow {
@@ -189,7 +189,7 @@
 }
 
 .program-item {
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid #E5E7EB;
   border-radius: 16px;
   padding: 28px 32px;
@@ -204,6 +204,42 @@
 .program-item:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
   transform: translateY(-2px);
+}
+
+.program-item-featured {
+  border-color: #1B3A6B;
+  position: relative;
+  overflow: visible;
+}
+
+.best-selling-tag {
+  position: absolute;
+  top: -13px;
+  left: 28px;
+  background: linear-gradient(90deg, #1B3A6B 0%, #2563EB 50%, #1B3A6B 100%);
+  background-size: 200% 100%;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6);
+  animation: best-selling-pulse 2s ease-in-out infinite, best-selling-shine 3s linear infinite;
+}
+
+@keyframes best-selling-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
+  50%       { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
+}
+
+@keyframes best-selling-shine {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 .program-item-left {
@@ -345,6 +381,14 @@
   margin-bottom: 2px;
 }
 
+.price-original {
+  display: block;
+  font-size: 13px;
+  color: #9CA3AF;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
 .price-amount {
   font-size: 24px;
   font-weight: 700;
@@ -385,6 +429,10 @@
 /* ═══════════════════════════════
    WHY VIEM
 ═══════════════════════════════ */
+.why-section {
+  background: #FAFAF9;
+}
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -428,6 +476,10 @@
 /* ═══════════════════════════════
    PRICING
 ═══════════════════════════════ */
+.pricing-section {
+  background: #F5F4F0;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -436,6 +488,7 @@
 }
 
 .pricing-card {
+  background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 28px;
@@ -469,6 +522,24 @@
   color: var(--color-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.pricing-original {
+  font-size: 16px;
+  color: #9CA3AF;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.discount-badge {
+  display: inline-block;
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 8px;
 }
 
 .pricing-amount {
@@ -523,7 +594,7 @@
    BATCH
 ═══════════════════════════════ */
 .batch-section {
-  background: var(--color-off-white);
+  background: #FAFAF9;
 }
 
 .batch-grid {

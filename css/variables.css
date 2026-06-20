@@ -38,9 +38,9 @@
   --color-gray-50:  #F7F9F8;
 
   /* ── Neutral Aliases (used across all files) ── */
-  --color-white:      #FFFFFF;
-  --color-off-white:  #F7F9F8;
-  --color-light-gray: #F1F4F3;
+  --color-white:      #FAFAF9;
+  --color-off-white:  #F5F4F0;
+  --color-light-gray: #EFEDE8;
   --color-border:     #E2E8E5;
   --color-gray:       #6B7C75;
 

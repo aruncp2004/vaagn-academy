@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #ffffff;
+  background: #FAFAF9;
   border-bottom: 1px solid #E5E7EB;
   transition: all 0.2s ease;
 }
@@ -97,7 +97,7 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  background: #ffffff;
+  background: #FAFAF9;
   border: 1px solid #E5E7EB;
   border-radius: 14px;
   padding: 8px;
@@ -158,6 +158,130 @@
   font-size: 11px;
   color: #9CA3AF;
   line-height: 1.4;
+}
+
+/* ════════════════════════════
+   MEGA DROPDOWN
+════════════════════════════ */
+.mega-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -100px;
+  width: 520px;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.has-mega:hover .mega-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mega-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #F3F4F6;
+  padding-bottom: 12px;
+}
+
+.mega-tab {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6B7280;
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mega-tab:hover {
+  background: #F9FAFB;
+  color: #111827;
+}
+
+.mega-tab.active {
+  background: #EFF6FF;
+  color: #1B3A6B;
+  font-weight: 600;
+}
+
+.mega-content {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mega-content.active {
+  display: flex;
+}
+
+.mega-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.mega-item:hover {
+  background: #F9FAFB;
+}
+
+.mega-arrow {
+  font-size: 14px;
+  color: #1B3A6B;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+}
+
+.mega-item:hover .mega-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mega-item-body {
+  flex: 1;
+}
+
+.mega-item-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.mega-item-desc {
+  display: block;
+  font-size: 11px;
+  color: #9CA3AF;
+  line-height: 1.4;
+}
+
+.mega-item-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* CTA button */

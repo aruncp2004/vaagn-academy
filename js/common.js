@@ -22,6 +22,21 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Mega dropdown tabs
+document.addEventListener('click', (e) => {
+  const tab = e.target.closest('.mega-tab');
+  if (!tab) return;
+
+  const mega = tab.closest('.mega-dropdown');
+  const tabName = tab.dataset.tab;
+
+  mega.querySelectorAll('.mega-tab').forEach(t => t.classList.remove('active'));
+  mega.querySelectorAll('.mega-content').forEach(c => c.classList.remove('active'));
+
+  tab.classList.add('active');
+  mega.querySelector(`[data-content='${tabName}']`).classList.add('active');
+});
+
 // Active link
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.navbar-links > li > a').forEach(link => {
