@@ -12,8 +12,8 @@ async function loadComponent(id, file) {
 
 // Load all components
 Promise.all([
-  loadComponent('navbar-placeholder', './components/nav.html'),
-  loadComponent('footer-placeholder', './components/footer.html'),
-  loadComponent('popup-placeholder', './components/popup.html'),
-  loadComponent('sticky-bar-placeholder', './components/sticky-bar.html'),
+  loadComponent('navbar-placeholder', '/academy/components/nav.html'),
+  loadComponent('footer-placeholder', '/academy/components/footer.html'),
+  loadComponent('popup-placeholder', '/academy/components/popup.html'),
+  loadComponent('sticky-bar-placeholder', '/academy/components/sticky-bar.html'),
 ]);
