@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/velevmot/public_html/vaagnauto.com/academy
+    - /bin/cp -r $HOME/repositories/vaagn-academy/* $DEPLOYPATH
