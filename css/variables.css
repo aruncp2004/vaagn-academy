@@ -1,0 +1,92 @@
+:root {
+  /* ── Primary Blue Scale ── */
+  --color-primary-900:  #0A1628;
+  --color-primary-800:  #0F2040;
+  --color-primary-700:  #162B55;
+  --color-primary-600:  #1B3A6B;
+  --color-primary-500:  #2152A3;
+  --color-primary-400:  #2563EB;
+  --color-primary-300:  #60A5FA;
+  --color-primary-200:  #BFDBFE;
+  --color-primary-100:  #DBEAFE;
+  --color-primary-50:   #EFF6FF;
+
+  /* ── Primary Aliases (used across all files) ── */
+  --color-primary:        #1B3A6B;
+  --color-primary-light:  #EFF6FF;
+  --color-primary-dark:   #0F2040;
+  --color-primary-mid:    #60A5FA;
+  --color-primary-hover:  #162B55;
+
+  /* ── Dark Scale ── */
+  --color-dark-900: #050D1A;
+  --color-dark-800: #0A1628;
+  --color-dark-700: #0F2040;
+  --color-dark-600: #162B55;
+
+  /* ── Dark Alias ── */
+  --color-dark: #0A1628;
+
+  /* ── Neutral Scale ── */
+  --color-gray-700: #3D3C38;
+  --color-gray-600: #6B7C75;
+  --color-gray-500: #8A9B94;
+  --color-gray-400: #B0AFA8;
+  --color-gray-300: #D3D1C7;
+  --color-gray-200: #E2E8E5;
+  --color-gray-100: #F1F4F3;
+  --color-gray-50:  #F7F9F8;
+
+  /* ── Neutral Aliases (used across all files) ── */
+  --color-white:      #FFFFFF;
+  --color-off-white:  #F7F9F8;
+  --color-light-gray: #F1F4F3;
+  --color-border:     #E2E8E5;
+  --color-gray:       #6B7C75;
+
+  /* ── Accent Colors ── */
+  --color-amber:         #B45309;
+  --color-amber-light:   #FAEEDA;
+  --color-blue:          #185FA5;
+  --color-blue-light:    #E6F1FB;
+  --color-purple:        #5B5BD6;
+  --color-purple-light:  #EEEDFE;
+  --color-coral:         #D85A30;
+  --color-coral-light:   #FAECE7;
+
+  /* ── Spacing ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+
+  /* ── Font Sizes ── */
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 15px;
+  --font-size-md:   16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   22px;
+  --font-size-2xl:  28px;
+  --font-size-3xl:  36px;
+
+  /* ── Border Radius ── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+
+  /* ── Transition ── */
+  --transition: all 0.2s ease;
+
+  /* ── Font Family ── */
+  --font-main: 'Inter', sans-serif;
+}
