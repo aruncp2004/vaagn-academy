@@ -1,0 +1,176 @@
+﻿/* ═══════════════════════════════════════════
+   COURSE DETAIL — Syllabus Table
+   Used by courses/course-template.html
+═══════════════════════════════════════════ */
+
+/* Wrapper handles horizontal scroll on mobile */
+.syllabus-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid #E5E7EB;
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.syllabus-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  background: #fff;
+}
+
+/* ── Header ── */
+.syllabus-table thead tr {
+  background: var(--color-dark);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.syllabus-table thead th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.syllabus-table thead th:first-child { border-radius: 0; padding-left: 20px; }
+.syllabus-table thead th:last-child  { border-radius: 0; padding-right: 20px; }
+
+/* ── Body rows ── */
+.syllabus-table tbody tr {
+  border-bottom: 1px solid #E5E7EB;
+  transition: background 0.15s ease;
+}
+
+.syllabus-table tbody tr:last-child { border-bottom: none; }
+
+/* Theory rows — alternating white / very light gray */
+.syllabus-table tbody tr.row-theory { background: #fff; }
+.syllabus-table tbody tr.row-theory:nth-child(even) { background: #F9FAFB; }
+.syllabus-table tbody tr.row-theory:hover { background: #F3F4F6; }
+
+/* Practical rows */
+.syllabus-table tbody tr.row-practical { background: #E1F5EE; }
+.syllabus-table tbody tr.row-practical:hover { background: #C9EDE0; }
+
+/* ── Cells ── */
+.syllabus-table tbody td {
+  padding: 13px 16px;
+  vertical-align: top;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+.syllabus-table tbody td:first-child { padding-left: 20px; white-space: nowrap; }
+.syllabus-table tbody td:last-child  { padding-right: 20px; }
+
+/* Date column */
+.td-date {
+  font-size: 12px;
+  color: var(--color-gray);
+  white-space: nowrap;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+/* Lesson number column */
+.td-lessonno {
+  text-align: center;
+  min-width: 52px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.lessonno-theory {
+  color: var(--color-dark);
+}
+
+.lessonno-practical {
+  color: #0F6E56;
+}
+
+/* Module column */
+.td-module {
+  min-width: 200px;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* Practical badge inside module cell */
+.practical-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #0F6E56;
+  background: #C9EDE0;
+  border: 1px solid #A7DDCC;
+  border-radius: 100px;
+  padding: 2px 8px;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+/* Topics column */
+.td-topics {
+  min-width: 220px;
+  color: var(--color-gray);
+}
+
+/* Outcome column */
+.td-outcome {
+  min-width: 180px;
+  color: var(--color-dark);
+  font-size: 12px;
+}
+
+/* ── Summary stats row above table ── */
+.syllabus-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.syllabus-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+}
+
+.syllabus-stat-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.stat-dot-theory    { background: #E5E7EB; border: 1px solid #D1D5DB; }
+.stat-dot-practical { background: #A7DDCC; border: 1px solid #0F6E56; }
+
+/* ── Responsive scroll hint ── */
+@media (max-width: 820px) {
+  .syllabus-table-wrap::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.7));
+    pointer-events: none;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+  .syllabus-table-wrap { position: relative; }
+}
