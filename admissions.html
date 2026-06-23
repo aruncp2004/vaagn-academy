@@ -57,7 +57,7 @@
       <!-- Right: Sticky form -->
       <div class="adm-form-wrap" id="enroll-form">
         <div class="adm-form-card">
-          <h3 class="adm-form-title">I'm Interested</h3>
+          <h3 class="adm-form-title">Apply for Admission</h3>
           <form class="adm-form" id="admissionForm" novalidate>
             <div class="adm-field">
               <label>* Name</label>
@@ -110,15 +110,23 @@
               <div class="adm-batch-row">
                 <label class="adm-batch-opt">
                   <input type="radio" name="batch" value="Batch A — 4:30 PM to 6:30 PM" required>
-                  <span>Batch A<br><small>4:30 PM – 6:30 PM</small></span>
+                  <div class="adm-radio-dot"></div>
+                  <span>
+                    <span class="adm-batch-name">Batch A</span>
+                    <small>4:30 PM – 6:30 PM</small>
+                  </span>
                 </label>
                 <label class="adm-batch-opt">
                   <input type="radio" name="batch" value="Batch B — 8:30 PM to 10:30 PM">
-                  <span>Batch B<br><small>8:30 PM – 10:30 PM</small></span>
+                  <div class="adm-radio-dot"></div>
+                  <span>
+                    <span class="adm-batch-name">Batch B</span>
+                    <small>8:30 PM – 10:30 PM</small>
+                  </span>
                 </label>
               </div>
             </div>
-            <button type="submit" class="adm-submit-btn" id="submitBtn">Request a Call Back</button>
+            <button type="submit" class="adm-submit-btn" id="submitBtn">Apply Now →</button>
             <div class="adm-form-note"><i class="ti ti-lock"></i> Your information is safe with us</div>
             <div class="adm-form-msg" id="formMsg"></div>
           </form>
@@ -163,22 +171,6 @@
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-clock"></i></div><h4>Flexible Batches</h4><p>Evening batches designed for students and working professionals</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-users"></i></div><h4>Expert Faculty</h4><p>Engineers from Vaagn Auto with 8+ years of real EV experience</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-briefcase"></i></div><h4>Placement Support</h4><p>Direct hiring pipeline to Vaagn Auto and EV industry partners</p></div>
-        </div>
-      </div>
-      <div class="adm-form-wrap adm-form-sticky">
-        <div class="adm-form-card">
-          <h3 class="adm-form-title">I'm Interested</h3>
-          <form class="adm-form" id="admissionForm2" novalidate>
-            <div class="adm-field"><label>* Name</label><input type="text" name="name" placeholder="Enter your name" required></div>
-            <div class="adm-field"><label>* Email</label><input type="email" name="email" placeholder="Enter your email" required></div>
-            <div class="adm-field"><label>* Phone / WhatsApp</label><div class="adm-phone-row"><span class="adm-phone-prefix">IN +91</span><input type="tel" name="phone" placeholder="9876543210" required maxlength="10"></div></div>
-            <div class="adm-field"><label>* Qualification</label><select name="qualification" required><option value="">Select</option><option>10th / 12th</option><option>ITI</option><option>Diploma</option><option>BE / BTech</option><option>Working Professional</option><option>Entrepreneur</option></select></div>
-            <div class="adm-field"><label>* Course</label><select name="course" required><option value="">Select course</option><option>EV Master Class</option><option>Battery Technology</option><option>EV Powertrain</option><option>EV Entrepreneurship</option></select></div>
-            <div class="adm-field"><label>* Mode of Study</label><select name="mode" required><option value="">Select mode</option><option>Online — ₹9,999</option><option>Hybrid — ₹16,999</option><option>Offline — ₹24,999</option></select></div>
-            <button type="submit" class="adm-submit-btn">Request a Call Back</button>
-            <div class="adm-form-note"><i class="ti ti-lock"></i> Your information is safe with us</div>
-            <div class="adm-form-msg"></div>
-          </form>
         </div>
       </div>
     </div>

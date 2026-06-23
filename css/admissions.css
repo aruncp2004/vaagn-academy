@@ -249,8 +249,7 @@
   font-weight: 600;
   color: #374151;
 }
-.adm-field input,
-.adm-field select {
+.adm-field input {
   font-size: 14px;
   color: #111827;
   background: #F9FAFB;
@@ -262,11 +261,37 @@
   font-family: var(--font-main, 'Inter', sans-serif);
   -webkit-appearance: none;
 }
-.adm-field input:focus,
-.adm-field select:focus {
+.adm-field input:focus {
   outline: none;
   border-color: #1B3A6B;
   background: #fff;
+  box-shadow: 0 0 0 3px rgba(27,58,107,0.08);
+}
+.adm-field select {
+  font-size: 14px;
+  color: #111827;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 11px 40px 11px 14px;
+  width: 100%;
+  transition: all 0.15s ease;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.adm-field select:focus {
+  outline: none;
+  border-color: #1B3A6B;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231B3A6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
   box-shadow: 0 0 0 3px rgba(27,58,107,0.08);
 }
 .adm-phone-row { display: flex; gap: 8px; align-items: center; }
@@ -282,27 +307,107 @@
   flex-shrink: 0;
 }
 .adm-phone-row input { flex: 1; }
-.adm-batch-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.adm-batch-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
 .adm-batch-opt {
   display: flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid #E5E7EB;
-  border-radius: 8px;
-  padding: 10px 12px;
+  gap: 10px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 12px 14px;
   cursor: pointer;
   transition: all 0.15s ease;
   font-size: 13px;
   font-weight: 500;
   color: #374151;
+  position: relative;
 }
+
+.adm-batch-opt input[type='radio'] {
+  display: none;
+}
+
+.adm-radio-dot {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+.adm-radio-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1B3A6B;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
 .adm-batch-opt:has(input:checked) {
   border-color: #1B3A6B;
   background: #EFF6FF;
   color: #1B3A6B;
 }
-.adm-batch-opt input { width: 14px; height: 14px; accent-color: #1B3A6B; }
-.adm-batch-opt small { font-size: 11px; color: #9CA3AF; display: block; }
+.adm-batch-opt:has(input:checked) .adm-radio-dot {
+  border-color: #1B3A6B;
+}
+.adm-batch-opt:has(input:checked) .adm-radio-dot::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.adm-batch-opt span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.adm-batch-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.adm-batch-opt small {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.adm-batch-opt:has(input:checked) small {
+  color: #1B3A6B;
+}
+
+/* JS fallback for browsers without :has() support */
+.adm-batch-opt.selected {
+  border-color: #1B3A6B;
+  background: #EFF6FF;
+}
+.adm-batch-opt.selected .adm-radio-dot {
+  border-color: #1B3A6B;
+}
+.adm-batch-opt.selected .adm-radio-dot::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.adm-batch-opt.selected .adm-batch-name {
+  color: #1B3A6B;
+}
+.adm-batch-opt.selected small {
+  color: #1B3A6B;
+}
 .adm-submit-btn {
   background: #0D1117;
   color: #fff;
@@ -382,15 +487,12 @@
 /* ── Why VIEM ────────────────────────── */
 .adm-why { background: #fff; }
 .adm-why-inner {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 48px;
-  align-items: start;
+  display: block;
 }
 .adm-why-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   margin-top: 24px;
 }
 .adm-why-card {
