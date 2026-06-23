@@ -686,3 +686,14 @@
   .batch-grid { grid-template-columns: 1fr; }
   .cta-band-inner { flex-direction: column; text-align: center; }
 }
+
+/* ── Batch seats urgency ─────────────── */
+.batch-seats {
+  animation: pulse-seats 2s ease-in-out infinite;
+  color: #DC2626;
+}
+
+@keyframes pulse-seats {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.04); }
+}
