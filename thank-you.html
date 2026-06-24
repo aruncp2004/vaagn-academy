@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Thank You — VIEM | Vaagn Institute of Electric Mobility</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .ty-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      background: #FAFAF9;
+    }
+    .ty-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #DCFCE7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #059669;
+      margin: 0 auto 24px;
+      animation: pop-in 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+    @keyframes pop-in {
+      0%   { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .ty-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #0D1117;
+      margin-bottom: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-subtitle {
+      font-size: 16px;
+      color: #6B7280;
+      max-width: 440px;
+      line-height: 1.7;
+      margin: 0 auto 32px;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-steps {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+    .ty-step {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-step-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #EFF6FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #1B3A6B;
+      flex-shrink: 0;
+    }
+    .ty-step-text {
+      text-align: left;
+    }
+    .ty-step-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111827;
+      display: block;
+    }
+    .ty-step-desc {
+      font-size: 12px;
+      color: #6B7280;
+      display: block;
+    }
+    .ty-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ty-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B3A6B;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-btn-primary:hover { background: #0F2040; }
+    .ty-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #1B3A6B;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1.5px solid #1B3A6B;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-btn-ghost:hover { background: #EFF6FF; }
+    .ty-brand {
+      margin-top: 48px;
+      font-size: 13px;
+      color: #9CA3AF;
+      font-family: 'Inter', sans-serif;
+    }
+    .ty-brand strong { color: #1B3A6B; }
+    .ty-countdown {
+      font-size: 13px;
+      color: #059669;
+      background: #DCFCE7;
+      padding: 8px 16px;
+      border-radius: 99px;
+      margin-bottom: 24px;
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ty-page">
+
+    <div class="ty-icon"><i class="ti ti-check"></i></div>
+
+    <h1 class="ty-title">We've Got Your Application!</h1>
+    <p class="ty-subtitle">Thank you for applying to VIEM. Our admission team has received your application and will contact you shortly.</p>
+
+    <div class="ty-countdown">
+      <i class="ti ti-clock"></i> &nbsp;Expect a call within 2 hours · Mon–Sat, 9 AM – 6 PM
+    </div>
+
+    <div class="ty-steps">
+      <div class="ty-step">
+        <div class="ty-step-icon"><i class="ti ti-phone"></i></div>
+        <div class="ty-step-text">
+          <span class="ty-step-title">We'll call you</span>
+          <span class="ty-step-desc">Within 2 hours</span>
+        </div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-icon"><i class="ti ti-brand-whatsapp"></i></div>
+        <div class="ty-step-text">
+          <span class="ty-step-title">WhatsApp confirmation</span>
+          <span class="ty-step-desc">Check your messages</span>
+        </div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-icon"><i class="ti ti-credit-card"></i></div>
+        <div class="ty-step-text">
+          <span class="ty-step-title">Payment link</span>
+          <span class="ty-step-desc">Sent after confirmation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ty-btns">
+      <a href="programs.html" class="ty-btn-primary">Explore Programs <i class="ti ti-arrow-right"></i></a>
+      <a href="index.html" class="ty-btn-ghost"><i class="ti ti-home"></i> Back to Home</a>
+    </div>
+
+    <div class="ty-brand">
+      <strong>VIEM</strong> — Vaagn Institute of Electric Mobility · Sriperumbudur, Tamil Nadu
+    </div>
+
+  </div>
+
+  <script src="js/components.js"></script>
+  <script src="js/analytics.js"></script>
+
+  <!-- Auto redirect to home after 5 minutes if no action -->
+  <script>
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 300000);
+  </script>
+
+</body>
+</html>
