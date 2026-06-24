@@ -52,7 +52,7 @@ function initCalculator() {
   const referralPrices = {
     online:  { 1: 9000,  3: 7000  },
     hybrid:  { 1: 16000, 3: 14000 },
-    offline: { 1: 25000, 3: 25000 },
+    offline: { 1: 24999, 3: 24999 },
   };
 
   function calculate() {

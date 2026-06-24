@@ -1,0 +1,276 @@
+/* ══════════════════════════════════════
+   VIEM — Contact Page CSS
+══════════════════════════════════════ */
+
+/* ── Main Section ────────────────────── */
+.ct-section {
+  padding: 110px 0 80px;
+  background: #FAFAF9;
+  min-height: 100vh;
+}
+
+.ct-inner {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Left ────────────────────────────── */
+.ct-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #1B3A6B;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ct-title {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  color: #0D1117;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.ct-subtitle {
+  font-size: 15px;
+  color: #6B7280;
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 0;
+}
+
+.ct-divider {
+  border: none;
+  border-top: 1px solid #E5E7EB;
+  margin: 28px 0;
+}
+
+/* Contact list */
+.ct-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ct-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.ct-item-divider {
+  border: none;
+  border-top: 1px solid #F3F4F6;
+  margin: 0;
+}
+
+.ct-contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #FEF3C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color:rgb(96, 113, 210);
+  flex-shrink: 0;
+}
+
+.ct-contact-label {
+  font-size: 13px;
+  color: #9CA3AF;
+  margin-bottom: 4px;
+}
+
+.ct-contact-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0D1117;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  line-height: 1.4;
+}
+
+.ct-contact-value:hover { color: #1B3A6B; }
+
+/* Socials */
+.ct-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ct-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #6B7280;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.ct-social-btn:hover {
+  background: #1B3A6B;
+  color: #fff;
+  border-color: #1B3A6B;
+}
+
+/* ── Right: Form ─────────────────────── */
+.ct-right {
+  position: sticky;
+  top: 88px;
+}
+
+.ct-form-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.ct-form-header {
+  margin-bottom: 24px;
+}
+
+.ct-form-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0D1117;
+  margin-bottom: 4px;
+}
+
+.ct-form-hello { color:rgb(107, 82, 197); }
+
+.ct-form-sub {
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+.ct-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ct-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.ct-field input,
+.ct-field textarea {
+  font-size: 14px;
+  color: #111827;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 14px;
+  width: 100%;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  transition: all 0.15s ease;
+  resize: vertical;
+}
+
+.ct-field input:focus,
+.ct-field textarea:focus {
+  outline: none;
+  border-color: #1B3A6B;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(27,58,107,0.08);
+}
+
+.ct-phone-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ct-phone-prefix {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 12px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ct-phone-row input { flex: 1; }
+
+.ct-submit-btn {
+  background: lab(48.28% 39.82 -67.82);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.ct-submit-btn:hover {
+  background: #0f1539;
+  transform: translateY(-1px);
+}
+
+.ct-form-msg {
+  font-size: 13px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+}
+
+.ct-form-msg.success {
+  background: #DCFCE7;
+  color: #166534;
+  display: block;
+}
+
+.ct-form-msg.error {
+  background: #FEE2E2;
+  color: #991B1B;
+  display: block;
+}
+
+/* ── Map ─────────────────────────────── */
+.ct-map-section { background: #F3F4F6; }
+.ct-map-wrap    { width: 100%; height: 400px; overflow: hidden; }
+.ct-map-wrap iframe { width: 100%; height: 100%; display: block; }
+
+/* ── Responsive ──────────────────────── */
+@media (max-width: 1024px) {
+  .ct-inner { grid-template-columns: 1fr; gap: 48px; }
+  .ct-right { position: static; }
+}
+
+@media (max-width: 768px) {
+  .ct-section { padding: 90px 0 60px; }
+  .ct-form-card { padding: 24px; }
+}
