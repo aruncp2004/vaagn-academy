@@ -589,10 +589,10 @@
   padding: 16px;
   text-align: center;
 }
-.adm-referral-card.adm-referral-best {
+/* .adm-referral-card.adm-referral-best {
   background: #EFF6FF;
   border-color: #1B3A6B;
-}
+} */
 .adm-referral-tag  { font-size: 12px; font-weight: 700; color: #1B3A6B; margin-bottom: 4px; }
 .adm-referral-mode { font-size: 11px; color: #6B7280; margin-bottom: 6px; }
 .adm-referral-price { font-size: 20px; font-weight: 800; color: #0D1117; }
