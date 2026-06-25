@@ -17,9 +17,18 @@ document.addEventListener('click', (e) => {
   }
 
   if (dropdownParent && window.innerWidth <= 1024) {
+    // Prevent navigating away so the dropdown can open
+    if (e.target.closest('a') === dropdownParent.querySelector(':scope > a')) {
+      e.preventDefault();
+    }
     dropdownParent.classList.toggle('mobile-open');
     return;
   }
+
+  // Close open dropdowns when clicking outside
+  document.querySelectorAll('.has-dropdown.mobile-open').forEach(el => {
+    if (!el.contains(e.target)) el.classList.remove('mobile-open');
+  });
 });
 
 // Mega dropdown tabs
@@ -37,11 +46,15 @@ document.addEventListener('click', (e) => {
   mega.querySelector(`[data-content='${tabName}']`).classList.add('active');
 });
 
-// Active link
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.navbar-links > li > a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage || href === './' + currentPage) {
-    link.classList.add('active');
-  }
-});
+// Active link — runs after navbar component loads
+function setActiveLink() {
+  const currentPage = '/' + (window.location.pathname.split('/').pop() || 'index.html');
+  document.querySelectorAll('.navbar-links > li > a').forEach(link => {
+    const href = link.getAttribute('href') || '';
+    link.classList.toggle('active', href === currentPage);
+  });
+}
+
+// Try immediately (for cached nav) and again after 300ms (for async fetch)
+setActiveLink();
+setTimeout(setActiveLink, 300);

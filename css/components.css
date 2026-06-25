@@ -1,4 +1,30 @@
 /* ════════════════════════════
+   ANNOUNCEMENTS NAV DOT
+════════════════════════════ */
+.ann-nav-link {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+}
+
+.ann-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #DC2626;
+  flex-shrink: 0;
+  display: inline-block;
+  animation: ann-pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(220,38,38,0.4);
+}
+
+@keyframes ann-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(220,38,38,0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(220,38,38,0); }
+  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}
+
+/* ════════════════════════════
    NAVBAR
 ════════════════════════════ */
 .navbar {
@@ -665,3 +691,53 @@
     justify-content: center;
   }
 }
+
+/* ════════════════════════════
+   POPUP THANK YOU STATE
+════════════════════════════ */
+.popup-thankyou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 16px 0;
+}
+.popup-ty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #059669;
+}
+.popup-ty-title { font-size: 22px; font-weight: 700; color: #0D1117; }
+.popup-ty-msg   { font-size: 14px; color: #6B7280; line-height: 1.7; }
+.popup-ty-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #059669;
+  background: #DCFCE7;
+  padding: 8px 16px;
+  border-radius: 99px;
+}
+.popup-ty-close {
+  background: #1B3A6B;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+.popup-ty-close:hover { background: #0F2040; }

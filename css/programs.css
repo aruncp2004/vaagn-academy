@@ -123,3 +123,7 @@
 @media (max-width:1024px) {
   .pl-honest-inner { grid-template-columns:1fr; }
 }
+/* Programs hero background overlay */
+.prog-hero { position:relative; overflow:hidden; }
+.prog-hero::before { content:''; position:absolute; inset:0; background-image:url('https://placehold.co/1920x600/1B3A6B/ffffff?text=EV+Programs'); background-size:cover; background-position:center; opacity:0.06; z-index:0; }
+.prog-hero-inner { position:relative; z-index:1; }

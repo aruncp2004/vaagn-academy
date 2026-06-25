@@ -33,6 +33,87 @@
 .ab-mission-label { font-size:11px; font-weight:700; letter-spacing:.1em; color:rgba(255,255,255,.4); text-transform:uppercase; }
 .ab-mission-text { font-size:clamp(18px,2.5vw,26px); font-weight:600; color:#fff; line-height:1.5; font-style:italic; }
 
+/* Leadership */
+.ab-leadership-section { background:#F9FAFB; }
+.ab-team-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.ab-team-card {
+  background:#fff;
+  border:1px solid #E5E7EB;
+  border-radius:16px;
+  overflow:hidden;
+  transition:all .2s ease;
+}
+.ab-team-card:hover {
+  box-shadow:0 8px 32px rgba(0,0,0,.10);
+  transform:translateY(-3px);
+}
+.ab-team-photo {
+  width: 100%;
+  height: 280px;
+  background: #F3F4F6;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #E5E7EB;
+}
+.ab-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+}
+
+.ab-team-photo-fallback {
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  font-weight:800;
+  color:#fff;
+  background:linear-gradient(135deg, #1B3A6B, #2563EB);
+}
+.ab-team-info {
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.ab-team-name    { font-size:17px; font-weight:700; color:#0D1117; }
+.ab-team-role    { font-size:13px; font-weight:600; color:#1B3A6B; }
+.ab-team-company { font-size:12px; color:#9CA3AF; margin-bottom:8px; }
+.ab-team-bio     { font-size:13px; color:#6B7280; line-height:1.6; }
+
+/* Factory image */
+.ab-factory-img-wrap {
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #E5E7EB;
+}
+.ab-factory-img-wrap img {
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Labs */
+.ab-labs-section { background: #F9FAFB; }
+.ab-labs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.ab-lab-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: all 0.2s ease; }
+.ab-lab-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); }
+.ab-lab-icon { width: 48px; height: 48px; border-radius: 12px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #1B3A6B; }
+.ab-lab-card h3 { font-size: 15px; font-weight: 700; color: #111827; }
+.ab-lab-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ab-lab-card ul li { font-size: 13px; color: #6B7280; display: flex; align-items: center; gap: 8px; }
+.ab-lab-card ul li::before { content: '•'; color: #1B3A6B; font-weight: 700; flex-shrink: 0; }
+
 /* Story */
 .ab-why-section { background:#F9FAFB; }
 .ab-story-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
@@ -86,13 +167,22 @@
 @media (max-width:1024px) {
   .ab-who-inner   { grid-template-columns:1fr; }
   .ab-vaagn-inner { grid-template-columns:1fr; }
+  .ab-labs-grid   { grid-template-columns: 1fr 1fr; }
+  .ab-team-grid   { grid-template-columns:1fr 1fr; }
   .ab-story-grid  { grid-template-columns:1fr 1fr; }
   .ab-values-grid { grid-template-columns:1fr 1fr; }
   .ab-who-stats   { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:768px) {
   .ab-hero        { padding:90px 0 48px; }
+  .ab-labs-grid   { grid-template-columns: 1fr; }
+  .ab-team-grid   { grid-template-columns:1fr; }
   .ab-story-grid  { grid-template-columns:1fr; }
   .ab-values-grid { grid-template-columns:1fr; }
   .ab-cta-inner   { flex-direction:column; text-align:center; }
 }
+
+/* Factory photos grid in labs section */
+.ab-factory-photos { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:28px; border-radius:14px; overflow:hidden; }
+.ab-factory-photos img { width:100%; height:240px; object-fit:cover; display:block; }
+@media(max-width:768px){ .ab-factory-photos { grid-template-columns:1fr; } }

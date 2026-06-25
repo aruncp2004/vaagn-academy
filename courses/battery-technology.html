@@ -1,11 +1,181 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0;url=course-template.html?course=battery-technology" />
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    <script>window.location.replace('course-template.html?course=battery-technology');</script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battery Technology &mdash; VIEM | Coming Soon</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .cs-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: #FAFAF9;
+    }
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FEF3C7;
+      color: #92400E;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+    .cs-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: #FEF3C7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #D97706;
+      margin: 0 auto 24px;
+    }
+    .cs-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #0D1117;
+      margin-bottom: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-course {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 700;
+      color: #D97706;
+      margin-bottom: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-subtitle {
+      font-size: 15px;
+      color: #6B7280;
+      max-width: 480px;
+      line-height: 1.7;
+      margin: 0 auto 32px;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-notify-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .cs-notify-form input {
+      font-size: 14px;
+      padding: 12px 16px;
+      border: 1px solid #E5E7EB;
+      border-radius: 10px;
+      width: 280px;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+    }
+    .cs-notify-form input:focus { outline: none; border-color: #1B3A6B; }
+    .cs-notify-btn {
+      background: #1B3A6B;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .cs-notify-btn:hover { background: #0F2040; }
+    .cs-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cs-link-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B3A6B;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-link-primary:hover { background: #0F2040; }
+    .cs-link-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #1B3A6B;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1.5px solid #1B3A6B;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-link-ghost:hover { background: #EFF6FF; }
+    .cs-available {
+      margin-top: 40px;
+      padding: 20px 28px;
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 14px;
+      font-size: 13px;
+      color: #6B7280;
+      font-family: 'Inter', sans-serif;
+    }
+    .cs-available strong { color: #0D1117; }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <div class="cs-page">
+    <span class="cs-badge"><i class="ti ti-clock"></i> Coming Soon</span>
+    <div class="cs-icon"><i class="ti ti-battery"></i></div>
+    <div class="cs-course">Battery Technology</div>
+    <h1 class="cs-title">Syllabus Being Prepared</h1>
+    <p class="cs-subtitle">Our engineering team is finalising the Battery Technology curriculum. This course will be available soon. Get notified when it launches.</p>
+
+    <div class="cs-notify-form">
+      <input type="email" placeholder="Enter your email for updates">
+      <button class="cs-notify-btn">Notify Me</button>
+    </div>
+
+    <div class="cs-links">
+      <a href="../admissions.html" class="cs-link-primary">Pre-Register Now <i class="ti ti-arrow-right"></i></a>
+      <a href="../programs.html" class="cs-link-ghost">View All Programs</a>
+    </div>
+
+    <div class="cs-available">
+      <strong>Available Now:</strong> EV Master Class is open for enrollment &mdash;
+      <a href="ev-master-class.html" style="color:#1B3A6B;font-weight:600;">View Course &rarr;</a>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="../js/components.js"></script>
+  <script src="../js/common.js"></script>
+</body>
 </html>

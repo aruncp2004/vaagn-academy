@@ -146,18 +146,95 @@
 }
 .cd-video-wrap iframe { width: 100%; height: 100%; }
 
+/* ── Accordion ───────────────────────── */
+.cd-accordion { padding: 0; overflow: hidden; }
+
+.cd-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-main, 'Inter', sans-serif);
+  transition: background 0.15s ease;
+}
+
+.cd-accordion-header:hover { background: #F9FAFB; }
+
+.cd-accordion-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cd-accordion-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cd-lessons-badge {
+  font-size: 11px;
+  font-weight: 600;
+  background: #EFF6FF;
+  color: #1B3A6B;
+  padding: 3px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.cd-accordion-icon {
+  font-size: 18px;
+  color: #9CA3AF;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.cd-accordion-open .cd-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.cd-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.2s ease;
+  padding: 0 22px;
+}
+
+.cd-accordion-open .cd-accordion-body {
+  max-height: 1000px;
+  padding: 0 22px 20px;
+}
+
+.cd-accordion .cd-curriculum-week {
+  margin-bottom: 2px;
+}
+
+.cd-accordion .cd-curriculum-title {
+  margin-bottom: 0;
+}
+
 /* ── Why Join ─────────────────────────────── */
 .cd-why-inner {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
   align-items: start;
 }
+
 .cd-why-title {
-  font-size: clamp(26px, 3.5vw, 36px);
+  font-size: 24px;
   font-weight: 800;
   color: #0D1117;
-  line-height: 1.2;
+  line-height: 1.3;
+  white-space: normal;
+  margin-bottom: 20px;
 }
 .cd-why-grid {
   display: grid;
@@ -331,4 +408,108 @@
   .cd-prereq-card  { padding:32px 20px; transform:rotate(0); }
   .cd-prereq-grid  { grid-template-columns:1fr; }
   .cd-enroll-features { grid-template-columns:1fr; }
+}
+
+/* ══════════════════════════════════════════
+   COURSE INFO TABS
+══════════════════════════════════════════ */
+.cd-info-tabs-section { padding: 64px 0 80px; }
+
+/* Tab Bar */
+.cd-tab-bar { display:flex; border:1.5px solid #e0e0e0; border-radius:12px; overflow:hidden; margin-bottom:0; background:#fff; box-shadow:0 2px 12px rgba(27,58,107,0.06); }
+.cd-tab-btn { flex:1; padding:18px 12px; background:#fff; border:none; cursor:pointer; font-family:"Inter",sans-serif; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#6b7280; position:relative; transition:color 0.2s,background 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; }
+.cd-tab-btn + .cd-tab-btn { border-left:1.5px solid #e0e0e0; }
+.cd-tab-btn i { font-size:17px; }
+.cd-tab-btn.active { background:#1B3A6B; color:#fff; }
+.cd-tab-btn.active::after { content:""; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); border-left:10px solid transparent; border-right:10px solid transparent; border-top:10px solid #1B3A6B; z-index:2; }
+
+/* Tab Panels */
+.cd-tab-panels { border:1.5px solid #e0e0e0; border-top:3px solid #1B3A6B; border-radius:0 0 12px 12px; background:#fff; margin-top:10px; overflow:hidden; }
+.cd-tab-panel { display:none; padding:40px 36px; animation:cd-fadeIn 0.25s ease; }
+.cd-tab-panel.active { display:block; }
+@keyframes cd-fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+/* Panel 1: Curriculum */
+.cd-tab-curriculum-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.cd-tab-week { border:1.5px solid #e8edf4; border-radius:10px; overflow:hidden; }
+.cd-tab-week-header { background:#EFF6FF; padding:12px 16px; display:flex; align-items:center; gap:10px; border-bottom:1.5px solid #e8edf4; }
+.cd-tab-week-num { width:28px; height:28px; border-radius:50%; background:#1B3A6B; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.cd-tab-week-title { font-size:13px; font-weight:700; color:#1B3A6B; line-height:1.3; }
+.cd-tab-week-sub { font-size:11px; color:#6b7280; margin-top:1px; }
+.cd-tab-week-lessons { padding:12px 16px; list-style:none; display:flex; flex-direction:column; gap:7px; }
+.cd-tab-week-lessons li { font-size:12.5px; color:#374151; display:flex; align-items:flex-start; gap:7px; line-height:1.4; }
+.cd-tab-week-lessons li i { color:#1B3A6B; font-size:13px; margin-top:1px; flex-shrink:0; }
+.cd-tab-week-lessons li.practical { color:#b45309; font-weight:500; }
+.cd-tab-week-lessons li.practical i { color:#b45309; }
+.cd-tab-curriculum-summary { margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; }
+.cd-tab-stat { flex:1; min-width:140px; background:#EFF6FF; border-radius:10px; padding:16px 20px; display:flex; align-items:center; gap:12px; }
+.cd-tab-stat i { font-size:22px; color:#1B3A6B; }
+.cd-tab-stat-label { font-size:11px; color:#6b7280; text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
+.cd-tab-stat-value { font-size:15px; font-weight:700; color:#1B3A6B; }
+
+/* Panel 2: Fee */
+.cd-tab-fee-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:32px; }
+.cd-tab-fee-card { border:1.5px solid #e0e0e0; border-radius:12px; padding:24px 20px; text-align:center; position:relative; transition:border-color 0.2s,box-shadow 0.2s; }
+.cd-tab-fee-card:hover { border-color:#1B3A6B; box-shadow:0 4px 20px rgba(27,58,107,0.1); }
+.cd-tab-fee-card.popular { border-color:#1B3A6B; box-shadow:0 4px 20px rgba(27,58,107,0.12); }
+.cd-tab-fee-popular-badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:#1B3A6B; color:#fff; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:3px 12px; border-radius:20px; white-space:nowrap; }
+.cd-tab-fee-mode { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#6b7280; margin-bottom:6px; }
+.cd-tab-fee-icon { font-size:28px; color:#1B3A6B; margin-bottom:12px; }
+.cd-tab-fee-original { font-size:13px; color:#9ca3af; text-decoration:line-through; margin-bottom:2px; }
+.cd-tab-fee-amount { font-size:28px; font-weight:800; color:#1B3A6B; letter-spacing:-0.02em; }
+.cd-tab-fee-amount sup { font-size:15px; font-weight:700; vertical-align:top; margin-top:5px; }
+.cd-tab-fee-amount .slash { font-size:16px; font-weight:500; color:#6b7280; }
+.cd-tab-fee-off { display:inline-block; background:#dcfce7; color:#15803d; font-size:11px; font-weight:700; padding:2px 9px; border-radius:20px; margin:8px 0 14px; }
+.cd-tab-fee-features { list-style:none; text-align:left; display:flex; flex-direction:column; gap:7px; margin-bottom:20px; }
+.cd-tab-fee-features li { font-size:12.5px; color:#374151; display:flex; gap:7px; align-items:flex-start; }
+.cd-tab-fee-features li i { color:#1B3A6B; font-size:14px; flex-shrink:0; margin-top:1px; }
+.cd-tab-fee-btn { display:block; width:100%; padding:11px; background:#1B3A6B; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; text-decoration:none; text-align:center; transition:opacity 0.2s; }
+.cd-tab-fee-btn:hover { opacity:0.88; }
+.cd-tab-referral { background:#EFF6FF; border-radius:12px; padding:24px 28px; }
+.cd-tab-referral h4 { font-size:14px; font-weight:700; color:#1B3A6B; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+.cd-tab-referral p { font-size:12.5px; color:#6b7280; margin-bottom:16px; }
+.cd-tab-ref-table { width:100%; border-collapse:collapse; }
+.cd-tab-ref-table th, .cd-tab-ref-table td { padding:10px 14px; font-size:12.5px; text-align:left; border-bottom:1px solid #dbeafe; }
+.cd-tab-ref-table th { font-weight:700; color:#1B3A6B; background:#dbeafe; font-size:11px; letter-spacing:0.05em; text-transform:uppercase; }
+.cd-tab-ref-table tr:last-child td { border-bottom:none; }
+.cd-tab-ref-table td:first-child { font-weight:600; color:#374151; }
+
+/* Panel 3: Certificate */
+.cd-tab-cert-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+.cd-tab-cert-left h3 { font-size:22px; font-weight:800; color:#1B3A6B; margin-bottom:10px; }
+.cd-tab-cert-left p { font-size:14px; color:#4b5563; line-height:1.7; margin-bottom:20px; }
+.cd-tab-cert-bodies { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
+.cd-tab-cert-body { display:flex; align-items:center; gap:12px; background:#EFF6FF; border-radius:10px; padding:14px 16px; border:1.5px solid #dbeafe; }
+.cd-tab-cert-body i { font-size:24px; color:#1B3A6B; flex-shrink:0; }
+.cd-tab-cert-body-name { font-size:13px; font-weight:700; color:#1B3A6B; }
+.cd-tab-cert-body-desc { font-size:11.5px; color:#6b7280; margin-top:2px; }
+.cd-tab-cert-points { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.cd-tab-cert-points li { font-size:13px; color:#374151; display:flex; align-items:flex-start; gap:8px; line-height:1.5; }
+.cd-tab-cert-points li i { color:#1B3A6B; font-size:15px; flex-shrink:0; margin-top:1px; }
+.cd-tab-cert-right { position:sticky; top:80px; }
+.cd-tab-cert-mockup { background:#fff; border:2px solid #1B3A6B; border-radius:12px; padding:30px; text-align:center; position:relative; box-shadow:0 8px 32px rgba(27,58,107,0.12); }
+.cd-tab-cert-mockup::before { content:""; position:absolute; inset:6px; border:1px solid #dbeafe; border-radius:8px; pointer-events:none; }
+.cd-cert-logo-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:18px; }
+.cd-cert-org-icon { width:40px; height:40px; background:#1B3A6B; border-radius:8px; display:flex; align-items:center; justify-content:center; }
+.cd-cert-org-icon i { color:#fff; font-size:22px; }
+.cd-cert-org-name { text-align:left; font-size:11px; font-weight:700; color:#1B3A6B; text-transform:uppercase; letter-spacing:0.05em; line-height:1.4; }
+.cd-cert-divider { height:1px; background:linear-gradient(90deg,transparent,#1B3A6B 40%,#1B3A6B 60%,transparent); margin:14px 0; opacity:0.3; }
+.cd-cert-label { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#9ca3af; margin-bottom:4px; }
+.cd-cert-title { font-size:18px; font-weight:800; color:#1B3A6B; margin-bottom:4px; }
+.cd-cert-subtitle { font-size:11px; color:#6b7280; margin-bottom:14px; }
+.cd-cert-name-line { height:2px; background:#1B3A6B; width:60%; margin:0 auto 4px; opacity:0.4; border-radius:2px; }
+.cd-cert-name-placeholder { font-size:13px; color:#9ca3af; font-style:italic; margin-bottom:14px; }
+.cd-cert-body-row { display:flex; justify-content:center; gap:16px; margin-top:12px; }
+.cd-cert-body-tag { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#1B3A6B; background:#EFF6FF; border:1px solid #dbeafe; border-radius:4px; padding:4px 10px; }
+.cd-cert-enroll-link { display:inline-flex; align-items:center; gap:6px; margin-top:20px; background:#1B3A6B; color:#fff; font-size:13px; font-weight:700; padding:12px 24px; border-radius:8px; text-decoration:none; transition:opacity 0.2s; }
+.cd-cert-enroll-link:hover { opacity:0.88; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .cd-tab-curriculum-grid { grid-template-columns:1fr; }
+  .cd-tab-fee-grid { grid-template-columns:1fr; }
+  .cd-tab-cert-grid { grid-template-columns:1fr; }
+  .cd-tab-panel { padding:28px 20px; }
+  .cd-tab-btn { font-size:11px; padding:15px 8px; }
+  .cd-tab-btn span { display:none; }
 }
