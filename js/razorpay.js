@@ -9,7 +9,7 @@
  *  - On payment success → viemSendToSheets() saves to Google Sheets (Admissions + Payment)
  */
 
-const VIEM_RAZORPAY_KEY = "rzp_test_T67js5vImlZOG3";
+const VIEM_RAZORPAY_KEY = "rzp_test_T6DgwJy4klj8Hs";
 
 // Switch to live key when going live:
 // const VIEM_RAZORPAY_KEY = "rzp_live_XXXXXXXXXX";

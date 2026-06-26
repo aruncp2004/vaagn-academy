@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
 
 // Show popup after 5 seconds
 setTimeout(() => {
