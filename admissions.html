@@ -16,9 +16,9 @@
 
   <div id="navbar-placeholder"></div>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        HERO — 2 column sticky layout
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="adm-hero">
     <div class="container adm-hero-inner">
 
@@ -61,48 +61,48 @@
           <form class="adm-form" id="admissionForm" novalidate>
             <div class="adm-field">
               <label>* Name</label>
-              <input type="text" name="name" placeholder="Enter your name" required>
+              <input type="text" name="name" id="field-name" placeholder="Enter your name" required>
             </div>
             <div class="adm-field">
               <label>* Email</label>
-              <input type="email" name="email" placeholder="Enter your email" required>
+              <input type="email" name="email" id="field-email" placeholder="Enter your email" required>
             </div>
             <div class="adm-field">
               <label>* Phone / WhatsApp Number</label>
               <div class="adm-phone-row">
                 <span class="adm-phone-prefix">IN +91</span>
-                <input type="tel" name="phone" placeholder="9876543210" required maxlength="10">
+                <input type="tel" name="phone" id="field-phone" placeholder="9876543210" required maxlength="10">
               </div>
             </div>
             <div class="adm-field">
               <label>* Current Qualification</label>
-              <select name="qualification" required>
+              <select name="qualification" id="field-qualification" required>
                 <option value="">Select your qualification</option>
-                <option>10th / 12th</option>
-                <option>ITI</option>
-                <option>Diploma</option>
-                <option>BE / BTech</option>
-                <option>Working Professional</option>
-                <option>Entrepreneur</option>
+                <option value="10th / 12th">10th / 12th</option>
+                <option value="ITI">ITI</option>
+                <option value="Diploma">Diploma</option>
+                <option value="BE / BTech">BE / BTech</option>
+                <option value="Working Professional">Working Professional</option>
+                <option value="Entrepreneur">Entrepreneur</option>
               </select>
             </div>
             <div class="adm-field">
               <label>* Which Course?</label>
-              <select name="course" required>
+              <select name="course" id="field-course" required>
                 <option value="">Select a course</option>
-                <option>EV Master Class</option>
-                <option>Battery Technology</option>
-                <option>EV Powertrain</option>
-                <option>EV Entrepreneurship</option>
+                <option value="ev-master-class">EV Master Class</option>
+                <option value="battery-technology">Battery Technology</option>
+                <option value="ev-powertrain">EV Powertrain</option>
+                <option value="ev-entrepreneurship">EV Entrepreneurship</option>
               </select>
             </div>
             <div class="adm-field">
               <label>* Preferred Mode of Study</label>
-              <select name="mode" required>
+              <select name="mode" id="field-mode" required>
                 <option value="">Select mode</option>
-                <option>Online — ₹9,999</option>
-                <option>Hybrid — ₹16,999</option>
-                <option>Offline — ₹24,999</option>
+                <option value="online">Online — ₹9,999</option>
+                <option value="hybrid">Hybrid — ₹16,999</option>
+                <option value="offline">Offline — ₹24,999</option>
               </select>
             </div>
             <div class="adm-field">
@@ -126,18 +126,32 @@
                 </label>
               </div>
             </div>
-            <button type="submit" class="adm-submit-btn" id="submitBtn">Apply Now →</button>
+
+            <button type="submit" class="adm-submit-btn" id="admission-submit-btn">Apply Now →</button>
             <div class="adm-form-note"><i class="ti ti-lock"></i> Your information is safe with us</div>
-            <div class="adm-form-msg" id="formMsg"></div>
+
+            <!-- Payment message shown here after Razorpay -->
+            <div id="payment-msg" style="
+              display:none;
+              margin-top:16px;
+              padding:16px 20px;
+              border-radius:10px;
+              font-family:'Inter',sans-serif;
+              font-size:14px;
+              line-height:1.6;
+              text-align:center;
+              border:1.5px solid;
+            "></div>
+
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        VIDEO SECTION
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="adm-video-section">
     <div class="adm-video-bg"></div>
     <div class="container adm-video-inner">
@@ -155,9 +169,9 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-       WHY VIEM — 2 column
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <!-- ══════════════════════════════════════
+       WHY VIEM
+  ══════════════════════════════════════ -->
   <section class="adm-why section">
     <div class="container adm-why-inner">
       <div class="adm-why-left">
@@ -167,7 +181,7 @@
         <div class="adm-why-grid">
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-building-factory"></i></div><h4>Factory Training</h4><p>Train inside Vaagn Auto's Sriperumbudur manufacturing plant</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-car"></i></div><h4>Real EVs</h4><p>Hands-on with Beast and Titan commercial electric vehicles</p></div>
-          <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-certificate"></i></div><h4>ASDC Certificate</h4><p>Industry recognised certification trusted by top EV companies</p></div>
+          <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-certificate"></i></div><h4>ASDC Certificate</h4><p>Industry recognised certification trusted by top EV companies in India</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-clock"></i></div><h4>Flexible Batches</h4><p>Evening batches designed for students and working professionals</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-users"></i></div><h4>Expert Faculty</h4><p>Engineers from Vaagn Auto with 8+ years of real EV experience</p></div>
           <div class="adm-why-card"><div class="adm-why-icon"><i class="ti ti-briefcase"></i></div><h4>Placement Support</h4><p>Direct hiring pipeline to Vaagn Auto and EV industry partners</p></div>
@@ -176,9 +190,9 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        PRICING & BATCHES
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="section adm-pricing-section">
     <div class="container">
       <span class="adm-section-eyebrow">FEES & BATCHES</span>
@@ -195,7 +209,7 @@
             <li><i class="ti ti-check"></i>ASDC Certificate</li>
             <li><i class="ti ti-check"></i>WhatsApp Support</li>
           </ul>
-          <a href="#enroll-form" class="adm-btn-outline">Enroll Now</a>
+          <a href="#enroll-form" class="adm-btn-outline" onclick="prefillMode('online')">Enroll Now</a>
         </div>
         <div class="adm-pricing-card adm-pricing-featured">
           <div class="adm-featured-badge">Recommended</div>
@@ -208,7 +222,7 @@
             <li><i class="ti ti-check"></i>Lab Access</li>
             <li><i class="ti ti-check"></i>ASDC Certificate</li>
           </ul>
-          <a href="#enroll-form" class="adm-btn-primary">Enroll Now</a>
+          <a href="#enroll-form" class="adm-btn-primary" onclick="prefillMode('hybrid')">Enroll Now</a>
         </div>
         <div class="adm-pricing-card">
           <div class="adm-pricing-mode">Offline</div>
@@ -220,7 +234,7 @@
             <li><i class="ti ti-check"></i>Priority Placement</li>
             <li><i class="ti ti-check"></i>ASDC Certificate</li>
           </ul>
-          <a href="#enroll-form" class="adm-btn-outline">Enroll Now</a>
+          <a href="#enroll-form" class="adm-btn-outline" onclick="prefillMode('offline')">Enroll Now</a>
         </div>
       </div>
 
@@ -244,14 +258,14 @@
             <div class="adm-batch-time">4:30 PM – 6:30 PM</div>
             <div class="adm-batch-days">Monday to Saturday</div>
             <div class="adm-batch-seats"><span class="adm-live-dot"></span><i class="ti ti-flame"></i> Only 12 seats left</div>
-            <a href="#enroll-form" class="adm-btn-primary" style="margin-top:16px;">Reserve Seat</a>
+            <a href="#enroll-form" class="adm-btn-primary" style="margin-top:16px;" onclick="prefillBatch('A')">Reserve Seat</a>
           </div>
           <div class="adm-batch-card">
             <div class="adm-batch-label">Batch B</div>
             <div class="adm-batch-time">8:30 PM – 10:30 PM</div>
             <div class="adm-batch-days">Monday to Saturday</div>
             <div class="adm-batch-seats"><span class="adm-live-dot"></span><i class="ti ti-flame"></i> Only 8 seats left</div>
-            <a href="#enroll-form" class="adm-btn-primary" style="margin-top:16px;">Reserve Seat</a>
+            <a href="#enroll-form" class="adm-btn-primary" style="margin-top:16px;" onclick="prefillBatch('B')">Reserve Seat</a>
           </div>
         </div>
       </div>
@@ -271,9 +285,9 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        CERTIFICATION
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="section adm-cert-section">
     <div class="container adm-cert-inner">
       <div class="adm-cert-left">
@@ -308,9 +322,9 @@
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        FAQ
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="section adm-faq-section">
     <div class="container adm-faq-inner">
       <h2 class="adm-section-title">Frequently Asked Questions</h2>
@@ -322,14 +336,14 @@
         <div class="adm-faq-item"><button class="adm-faq-q">Do I need prior EV knowledge? <i class="ti ti-chevron-down"></i></button><div class="adm-faq-a">No prior EV experience needed. We start from fundamentals. Basic electrical knowledge helps but is not required — we cover all basics in Week 1.</div></div>
         <div class="adm-faq-item"><button class="adm-faq-q">Is the certificate recognised? <i class="ti ti-chevron-down"></i></button><div class="adm-faq-a">Yes — ASDC (Automotive Skills Development Council) and NSDC aligned certification, recognised by EV manufacturers and service companies across India.</div></div>
         <div class="adm-faq-item"><button class="adm-faq-q">What modes are available? <i class="ti ti-chevron-down"></i></button><div class="adm-faq-a">Online (₹9,999) — live + recorded classes. Hybrid (₹16,999) — online theory + campus practicals. Offline (₹24,999) — full campus and factory training access.</div></div>
-        <div class="adm-faq-item"><button class="adm-faq-q">How do I pay? <i class="ti ti-chevron-down"></i></button><div class="adm-faq-a">Via Razorpay — UPI, Credit Card, Debit Card, Net Banking and EMI all accepted. Payment link is sent after your application is confirmed.</div></div>
+        <div class="adm-faq-item"><button class="adm-faq-q">How do I pay? <i class="ti ti-chevron-down"></i></button><div class="adm-faq-a">Via Razorpay — UPI, Credit Card, Debit Card, Net Banking and EMI all accepted. Payment opens immediately after you submit the application form.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+  <!-- ══════════════════════════════════════
        CTA BAND
-  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  ══════════════════════════════════════ -->
   <section class="adm-cta-band">
     <div class="container adm-cta-inner">
       <div><h2 class="adm-cta-title">Ready to start your EV career?</h2><p class="adm-cta-sub">Join the next batch — limited seats available. July 2026.</p></div>
@@ -349,16 +363,124 @@
   <script src="js/admissions.js"></script>
   <script src="js/analytics.js"></script>
 
+  <!-- Razorpay SDK + VIEM integration -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="js/razorpay.js"></script>
+
   <script>
-    // FAQ accordion
-    document.querySelectorAll('.adm-faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.adm-faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.adm-faq-item').forEach(i => i.classList.remove('open'));
+    // ── 1. READ URL PARAMS & PRE-FILL FORM ─────────────────────────────────
+    // Course pages link here as: admissions.html?course=ev-master-class&mode=online
+    (function prefillFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const course = params.get('course');
+      const mode   = params.get('mode');
+
+      if (course) {
+        const courseSelect = document.getElementById('field-course');
+        if (courseSelect) courseSelect.value = course;
+      }
+      if (mode) {
+        const modeSelect = document.getElementById('field-mode');
+        if (modeSelect) modeSelect.value = mode;
+      }
+
+      // If came from course page, scroll to form smoothly
+      if (course || mode) {
+        setTimeout(function() {
+          const form = document.getElementById('enroll-form');
+          if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
+      }
+    })();
+
+    // ── 2. PREFILL HELPERS (called by pricing + batch buttons on this page) ─
+    function prefillMode(mode) {
+      const modeSelect = document.getElementById('field-mode');
+      if (modeSelect) modeSelect.value = mode;
+    }
+
+    function prefillBatch(batch) {
+      // batch = 'A' or 'B'
+      const value = batch === 'A'
+        ? 'Batch A — 4:30 PM to 6:30 PM'
+        : 'Batch B — 8:30 PM to 10:30 PM';
+      const radios = document.querySelectorAll('input[name="batch"]');
+      radios.forEach(function(r) {
+        if (r.value === value) r.checked = true;
+      });
+    }
+
+    // ── 3. FORM SUBMIT → VALIDATE → RAZORPAY ──────────────────────────────
+    document.getElementById('admissionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name          = document.getElementById('field-name').value.trim();
+      const email         = document.getElementById('field-email').value.trim();
+      const phone         = document.getElementById('field-phone').value.trim();
+      const qualification = document.getElementById('field-qualification').value;
+      const course        = document.getElementById('field-course').value;
+      const mode          = document.getElementById('field-mode').value;
+      const batchRadio    = document.querySelector('input[name="batch"]:checked');
+      const batch         = batchRadio ? batchRadio.value : '';
+
+      // ── Validation ──
+      if (!name) {
+        viemShowMessage('payment-msg', 'error', 'Please enter your name.');
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        viemShowMessage('payment-msg', 'error', 'Please enter a valid email address.');
+        return;
+      }
+      if (!phone || !/^[6-9]\d{9}$/.test(phone)) {
+        viemShowMessage('payment-msg', 'error', 'Please enter a valid 10-digit Indian mobile number.');
+        return;
+      }
+      if (!qualification) {
+        viemShowMessage('payment-msg', 'error', 'Please select your qualification.');
+        return;
+      }
+      if (!course) {
+        viemShowMessage('payment-msg', 'error', 'Please select a course.');
+        return;
+      }
+      if (!mode) {
+        viemShowMessage('payment-msg', 'error', 'Please select a mode of study.');
+        return;
+      }
+      if (!batch) {
+        viemShowMessage('payment-msg', 'error', 'Please select a batch (A or B).');
+        return;
+      }
+
+      // ── Hide any old message ──
+      const msgEl = document.getElementById('payment-msg');
+      if (msgEl) msgEl.style.display = 'none';
+
+      // ── Open Razorpay ──
+      viemPay({
+        name:          name,
+        email:         email,
+        phone:         '+91' + phone,
+        qualification: qualification,
+        course:        course,
+        mode:          mode,
+        batch:         batch
+      });
+    });
+
+    // ── 4. FAQ ACCORDION ───────────────────────────────────────────────────
+    document.querySelectorAll('.adm-faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item   = btn.closest('.adm-faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.adm-faq-item').forEach(function(i) {
+          i.classList.remove('open');
+        });
         if (!isOpen) item.classList.add('open');
       });
     });
   </script>
+
 </body>
 </html>

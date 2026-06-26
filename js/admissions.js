@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // Replace with your Apps Script URL
-const WHATSAPP_NUMBER   = '91XXXXXXXXXX';            // Replace with actual number
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
+const WHATSAPP_NUMBER   = '9384033287';            // Replace with actual number
 
 function serializeForm(form) {
   const data = {};
