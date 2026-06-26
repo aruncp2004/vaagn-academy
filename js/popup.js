@@ -39,6 +39,7 @@ document.addEventListener('submit', async (e) => {
   if (!name.trim() || !phone.trim()) return;
 
   const data = {
+    type:      'enquiry',
     name,
     phone,
     source:    'Popup Form',
