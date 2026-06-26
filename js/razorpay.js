@@ -3,7 +3,7 @@
  * File: js/razorpay.js
  */
 
-const VIEM_RAZORPAY_KEY = "rzp_test_T6DgwJy4klj8Hs";
+const VIEM_RAZORPAY_KEY = "rzp_live_T6GErCRkljl8Px";
 
 const VIEM_COURSES = {
   "ev-master-class":     { name: "EV Master Class",       description: "1-Month Intensive EV Training Program" },
@@ -14,7 +14,7 @@ const VIEM_COURSES = {
 };
 
 const VIEM_MODES = {
-  "online":  { label: "Online",  amount: 9999  },
+  "online":  { label: "Online",  amount: 2 },
   "hybrid":  { label: "Hybrid",  amount: 16999 },
   "offline": { label: "Offline", amount: 24999 }
 };
@@ -60,6 +60,8 @@ function viemPay(formData) {
 
     modal: {
       ondismiss: function() {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         viemShowMessage("payment-msg", "warning",
           "Payment cancelled. Click <strong>Apply Now</strong> again whenever you're ready."
         );
