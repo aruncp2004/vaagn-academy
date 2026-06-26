@@ -1,18 +1,9 @@
 /**
  * VIEM Razorpay Integration
  * File: js/razorpay.js
- *
- * How it works:
- *  - Course page Enroll buttons → admissions.html?course=ev-master-class&mode=online
- *  - admissions.html reads URL params, pre-fills form
- *  - On "Apply Now" → viemPay() is called with form data
- *  - On payment success → viemSendToSheets() saves to Google Sheets (Admissions + Payment)
  */
 
 const VIEM_RAZORPAY_KEY = "rzp_test_T6DgwJy4klj8Hs";
-
-// Switch to live key when going live:
-// const VIEM_RAZORPAY_KEY = "rzp_live_XXXXXXXXXX";
 
 const VIEM_COURSES = {
   "ev-master-class":     { name: "EV Master Class",       description: "1-Month Intensive EV Training Program" },
@@ -28,12 +19,10 @@ const VIEM_MODES = {
   "offline": { label: "Offline", amount: 24999 }
 };
 
-// ── Replace with your Google Apps Script Web App URL once deployed ──────────
-const VIEM_SHEETS_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
-// ────────────────────────────────────────────────────────────────────────────
+const VIEM_SHEETS_URL = "https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec";
 
 /**
- * Main payment function — called from admissions.html "Apply Now"
+ * Main payment function
  * @param {object} formData - { name, email, phone, qualification, course, mode, batch }
  */
 function viemPay(formData) {
@@ -45,20 +34,18 @@ function viemPay(formData) {
     return;
   }
 
-  const amountPaise = modeInfo.amount * 100; // Razorpay needs paise
-
   const options = {
     key:         VIEM_RAZORPAY_KEY,
-    amount:      amountPaise,
+    amount:      modeInfo.amount * 100,
     currency:    "INR",
     name:        "VIEM — Vaagn Institute of Electric Mobility",
     description: course.name + " | " + modeInfo.label + " Mode",
     image:       window.location.origin + "/images/logo.png",
 
     prefill: {
-      name:    formData.name    || "",
-      email:   formData.email   || "",
-      contact: formData.phone   || ""
+      name:    formData.name  || "",
+      email:   formData.email || "",
+      contact: formData.phone || ""
     },
 
     notes: {
@@ -72,28 +59,29 @@ function viemPay(formData) {
     theme: { color: "#1B3A6B" },
 
     modal: {
-      ondismiss: function () {
+      ondismiss: function() {
         viemShowMessage("payment-msg", "warning",
           "Payment cancelled. Click <strong>Apply Now</strong> again whenever you're ready."
         );
       }
     },
 
-    handler: function (response) {
+    handler: function(response) {
       const paymentId = response.razorpay_payment_id;
 
-      // Save to Google Sheets
-      viemSendToSheets(paymentId, formData, modeInfo);
+      // Re-enable page scroll
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
 
-      // Show success
+      // Show success message
       viemShowMessage("payment-msg", "success",
         "🎉 Enrollment Confirmed!<br>" +
         "Payment ID: <strong>" + paymentId + "</strong><br>" +
         "Course: <strong>" + course.name + " — " + modeInfo.label + "</strong><br><br>" +
-        "Our team will contact you on <strong>" + formData.phone + "</strong> within 24 hours."
+        "Redirecting you to confirmation page..."
       );
 
-      // Disable the submit button so they can't double-pay
+      // Disable submit button
       const btn = document.getElementById("admission-submit-btn");
       if (btn) {
         btn.disabled = true;
@@ -104,13 +92,27 @@ function viemPay(formData) {
       // Scroll to message
       const msg = document.getElementById("payment-msg");
       if (msg) msg.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      // Call admissions.js handler (Google Sheets + WhatsApp)
+      if (typeof window.viemOnPaymentSuccess === "function") {
+        window.viemOnPaymentSuccess(paymentId, formData, {
+          label:      modeInfo.label,
+          amount:     modeInfo.amount,
+          courseName: course.name
+        });
+      }
+
+      // Redirect to thank-you page after 3 seconds
+      setTimeout(function() {
+        window.location.href = window.location.origin + '/thank-you.html';
+      }, 3000);
     }
   };
 
   try {
     const rzp = new Razorpay(options);
 
-    rzp.on("payment.failed", function (response) {
+    rzp.on("payment.failed", function(response) {
       viemShowMessage("payment-msg", "error",
         "❌ Payment failed: " + (response.error.description || "Please try again.") +
         "<br>Code: " + (response.error.code || "N/A")
@@ -127,49 +129,10 @@ function viemPay(formData) {
 }
 
 /**
- * Save to Google Sheets — writes to both Admissions and Payment sheets
- */
-function viemSendToSheets(paymentId, formData, modeInfo) {
-  if (!VIEM_SHEETS_URL || VIEM_SHEETS_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL") {
-    console.warn("Google Sheets URL not set. Skipping save.");
-    return;
-  }
-
-  const course = VIEM_COURSES[formData.course] || VIEM_COURSES["general"];
-  const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-
-  const payload = {
-    // Admissions sheet columns
-    timestamp:     timestamp,
-    name:          formData.name,
-    email:         formData.email,
-    phone:         formData.phone,
-    qualification: formData.qualification,
-    course:        course.name,
-    mode:          modeInfo.label,
-    batch:         formData.batch,
-    // Payment sheet columns
-    payment_id:    paymentId,
-    amount:        modeInfo.amount,
-    currency:      "INR",
-    status:        "Paid"
-  };
-
-  fetch(VIEM_SHEETS_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  })
-  .then(res => res.text())
-  .then(data => console.log("✅ Saved to Sheets:", data))
-  .catch(err => console.error("❌ Sheets save error:", err));
-}
-
-/**
  * Show a styled message box
  */
 function viemShowMessage(id, type, html) {
-  let el = document.getElementById(id);
+  const el = document.getElementById(id);
   if (!el) return;
 
   const styles = {
@@ -179,9 +142,9 @@ function viemShowMessage(id, type, html) {
   };
   const s = styles[type] || styles["warning"];
 
-  el.style.background    = s.bg;
-  el.style.borderColor   = s.border;
-  el.style.color         = s.color;
-  el.innerHTML           = html;
-  el.style.display       = "block";
+  el.style.background  = s.bg;
+  el.style.borderColor = s.border;
+  el.style.color       = s.color;
+  el.innerHTML         = html;
+  el.style.display     = "block";
 }
