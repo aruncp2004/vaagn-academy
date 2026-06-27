@@ -48,7 +48,7 @@ const COURSES = {
     whyCards: [
       { icon: 'ti-building-factory', color: '#D97706', title: 'Learn from EV Manufacturers', desc: 'We don\'t just teach EV — we build them.' },
       { icon: 'ti-car', color: '#1B3A6B', title: 'Train on Real Vehicles', desc: 'Hands-on with Vaagn Beast and Titan EVs.' },
-      { icon: 'ti-certificate', color: '#7C3AED', title: 'Industry Certification', desc: 'ASDC and NSDC aligned certificate.' },
+      { icon: 'ti-certificate', color: '#7C3AED', title: 'Industry Certification', desc: 'NSDC aligned certificate.' },
       { icon: 'ti-briefcase', color: '#0F6E56', title: 'Placement Support', desc: 'Direct hiring pipeline to EV companies.' },
       { icon: 'ti-users', color: '#DB2777', title: 'Small Batch Sizes', desc: 'Maximum 15 students per batch.' },
       { icon: 'ti-clock', color: '#D97706', title: 'Flexible Timings', desc: 'Batch A 4:30 PM or Batch B 8:30 PM.' }
@@ -94,7 +94,7 @@ const COURSES = {
     whyCards: [
       { icon: 'ti-battery', color: '#D97706', title: 'Most In-Demand EV Skill', desc: 'Every EV company is hiring battery engineers right now.' },
       { icon: 'ti-building-factory', color: '#1B3A6B', title: 'Real Pack Assembly', desc: 'Assemble actual battery packs in our Vaagn factory lab.' },
-      { icon: 'ti-certificate', color: '#7C3AED', title: 'Industry Certification', desc: 'ASDC and NSDC aligned certificate.' },
+      { icon: 'ti-certificate', color: '#7C3AED', title: 'Industry Certification', desc: 'NSDC aligned certificate.' },
       { icon: 'ti-briefcase', color: '#0F6E56', title: 'Placement Support', desc: 'Direct hiring pipeline to EV companies.' },
       { icon: 'ti-shield-check', color: '#DB2777', title: 'Safety Training', desc: 'High voltage safety protocols and certification.' },
       { icon: 'ti-clock', color: '#D97706', title: 'Flexible Timings', desc: 'Batch A 4:30 PM or Batch B 8:30 PM.' }
@@ -140,7 +140,7 @@ const COURSES = {
     whyCards: [
       { icon: 'ti-settings', color: '#7C3AED', title: 'Real Powertrain Training', desc: 'Train on actual Vaagn EV drivetrains and motors.' },
       { icon: 'ti-car', color: '#1B3A6B', title: 'Real Vehicle Testing', desc: 'Test and diagnose real Vaagn commercial EVs.' },
-      { icon: 'ti-certificate', color: '#D97706', title: 'Industry Certification', desc: 'ASDC and NSDC aligned certificate.' },
+      { icon: 'ti-certificate', color: '#D97706', title: 'Industry Certification', desc: 'NSDC aligned certificate.' },
       { icon: 'ti-briefcase', color: '#0F6E56', title: 'Placement Support', desc: 'Direct hiring pipeline to EV companies.' },
       { icon: 'ti-cpu', color: '#DB2777', title: 'Power Electronics', desc: 'Learn inverters, converters and controllers hands-on.' },
       { icon: 'ti-clock', color: '#D97706', title: 'Flexible Timings', desc: 'Batch A 4:30 PM or Batch B 8:30 PM.' }
@@ -186,7 +186,7 @@ const COURSES = {
     whyCards: [
       { icon: 'ti-rocket', color: '#DB2777', title: 'Start Your Own Business', desc: 'Get step-by-step guidance from EV industry experts.' },
       { icon: 'ti-building-factory', color: '#1B3A6B', title: 'Vaagn Dealer Network', desc: 'Opportunity to become a Vaagn Auto dealer partner.' },
-      { icon: 'ti-certificate', color: '#7C3AED', title: 'Business Certification', desc: 'ASDC and NSDC aligned certificate.' },
+      { icon: 'ti-certificate', color: '#7C3AED', title: 'Business Certification', desc: 'NSDC aligned certificate.' },
       { icon: 'ti-currency-rupee', color: '#D97706', title: 'ROI Planning', desc: 'Detailed financial planning and ROI calculations.' },
       { icon: 'ti-users', color: '#0F6E56', title: 'Mentorship Network', desc: 'Connect with EV entrepreneurs and industry leaders.' },
       { icon: 'ti-clock', color: '#DB2777', title: 'Flexible Timings', desc: 'Batch A 4:30 PM or Batch B 8:30 PM.' }

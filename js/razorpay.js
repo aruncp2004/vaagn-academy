@@ -14,9 +14,9 @@ const VIEM_COURSES = {
 };
 
 const VIEM_MODES = {
-  "online":  { label: "Online",  amount: 9999 },
-  "hybrid":  { label: "Hybrid",  amount: 16999 },
-  "offline": { label: "Offline", amount: 24999 }
+  "online":  { label: "Online",  amount: 11799 },
+  "hybrid":  { label: "Hybrid",  amount: 20059 },
+  "offline": { label: "Offline", amount: 29499 }
 };
 
 const VIEM_SHEETS_URL = "https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec";
@@ -39,7 +39,7 @@ function viemPay(formData) {
     amount:      modeInfo.amount * 100,
     currency:    "INR",
     name:        "VIEM — Vaagn Institute of Electric Mobility",
-    description: course.name + " | " + modeInfo.label + " Mode",
+    description: course.name + " | " + modeInfo.label + " Mode (incl. GST)",
     image:       window.location.origin + "/images/logo.png",
 
     prefill: {

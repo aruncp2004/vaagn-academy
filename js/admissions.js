@@ -3,7 +3,7 @@
 // ══════════════════════════════════════
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
-const WHATSAPP_NUMBER   = '919384033287'; // Team WhatsApp for enrollment alerts
+const WHATSAPP_NUMBER   = '9384033287'; // Team WhatsApp for enrollment alerts
 
 // ── Batch option visual selection ─────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {

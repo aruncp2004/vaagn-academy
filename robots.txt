@@ -1,0 +1,16 @@
+# robots.txt — VIEM | Vaagn Institute of Electric Mobility
+# https://academy.vaagnauto.com
+
+User-agent: *
+Allow: /
+
+# Don't index thank-you page (no SEO value)
+Disallow: /thank-you.html
+
+# Don't index js/css/image folders
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
+
+# Sitemap location
+Sitemap: https://academy.vaagnauto.com/sitemap.xml

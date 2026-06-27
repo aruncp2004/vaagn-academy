@@ -1,4 +1,17 @@
 /* ════════════════════════════
+   GST NOTE (shared)
+════════════════════════════ */
+.adm-gst-note {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+.adm-gst-note strong {
+  color: #374151;
+}
+
+/* ════════════════════════════
    ANNOUNCEMENTS NAV DOT
 ════════════════════════════ */
 .ann-nav-link {
