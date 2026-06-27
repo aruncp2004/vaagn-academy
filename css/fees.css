@@ -246,7 +246,7 @@
   margin-bottom: 20px;
   text-align: center;
 }
-.fees-compare-table { overflow-x: auto; }
+.fees-compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .fees-compare-table table {
   width: 100%;
   border-collapse: collapse;
@@ -578,6 +578,19 @@
   .fees-payment-grid { grid-template-columns: repeat(2, 1fr); }
   .fees-steps-grid   { grid-template-columns: 1fr; }
   .fees-cta-inner    { flex-direction: column; text-align: center; }
+  .fees-compare-table { -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 480px) {
+  .fees-hero        { padding: 80px 0 40px; }
+  .fees-title       { font-size: clamp(28px, 7vw, 40px); }
+  .fees-hero-stats  { flex-direction: column; gap: 12px; padding: 16px; }
+  .fees-mode-grid   { max-width: 100%; }
+  .fees-payment-grid { grid-template-columns: 1fr; }
+  .fees-referral-grid { max-width: 100%; }
+  .fees-cta-btns a  { width: 100%; justify-content: center; }
+  .fees-calc-stepper { width: 100%; }
+  .fees-offers-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Countdown Timer ─────────────────── */

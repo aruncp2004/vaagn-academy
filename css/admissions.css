@@ -260,6 +260,7 @@
   transition: all 0.15s ease;
   font-family: var(--font-main, 'Inter', sans-serif);
   -webkit-appearance: none;
+  appearance: none;
 }
 .adm-field input:focus {
   outline: none;
@@ -744,4 +745,20 @@
   .adm-batch-grid  { grid-template-columns: 1fr; }
   .adm-why-grid    { grid-template-columns: 1fr; }
   .adm-cta-inner   { flex-direction: column; text-align: center; }
+  .adm-video-wrap  { border-radius: 12px; border-width: 3px; }
+}
+@media (max-width: 480px) {
+  .adm-hero         { padding: 80px 0 40px; }
+  .adm-title        { font-size: clamp(28px, 7vw, 40px); }
+  .adm-referral-grid { grid-template-columns: 1fr; }
+  .adm-form-card    { padding: 20px 16px; }
+  .adm-batch-row    { grid-template-columns: 1fr; }
+  .adm-hero-btns    { flex-direction: column; }
+  .adm-hero-btns a,
+  .adm-hero-btns button { width: 100%; justify-content: center; }
+  .adm-cta-btns a   { width: 100%; justify-content: center; }
+  .adm-cert-mockup  { padding: 20px 16px; }
+  .adm-cert-sigs    { flex-direction: column; align-items: center; gap: 16px; }
+  .adm-video-hook h2 { font-size: clamp(18px, 5vw, 26px); }
+  .adm-video-hook   { flex-direction: column; align-items: center; }
 }

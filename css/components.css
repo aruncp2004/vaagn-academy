@@ -350,7 +350,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-toggle span {
@@ -360,6 +365,18 @@
   background: #374151;
   border-radius: 2px;
   transition: all 0.2s ease;
+}
+
+/* Touch-friendly desktop dropdowns */
+.has-dropdown.touch-open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.has-mega.touch-open .mega-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Mobile responsive */
@@ -382,6 +399,7 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     overflow-y: auto;
     max-height: calc(100vh - 68px);
+    -webkit-overflow-scrolling: touch;
   }
 
   .navbar-links.open {
@@ -397,6 +415,7 @@
   .navbar-links > li > a {
     width: 100%;
     padding: 10px 12px;
+    min-height: 44px;
   }
 
   .dropdown {
@@ -416,6 +435,29 @@
     display: block;
   }
 
+  /* Mega dropdown becomes plain list on mobile */
+  .mega-dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background: #F9FAFB;
+    border-radius: 10px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+    padding: 8px;
+    margin-top: 4px;
+  }
+
+  .has-mega.mobile-open .mega-dropdown {
+    display: block;
+  }
+
+  .mega-tabs { display: none; }
+  .mega-content { display: flex !important; }
+
   .navbar-cta {
     display: none;
   }
@@ -423,6 +465,11 @@
   .mobile-toggle {
     display: flex;
   }
+}
+
+@media (max-width: 360px) {
+  .logo-full  { display: none; }
+  .logo-name  { font-size: 18px; }
 }
 
 /* ════════════════════════════
@@ -672,11 +719,23 @@
   box-shadow: 0 4px 16px rgba(37,211,102,0.4);
   z-index: 9999;
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+}
+
+/* Move WhatsApp above sticky bar on mobile */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 76px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
 }
 
 /* Responsive */
@@ -703,6 +762,16 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .sticky-bar { padding: 10px 16px; gap: 10px; }
+  .sticky-bar-text { font-size: 12px; }
+  .sticky-bar-actions { flex-wrap: wrap; justify-content: center; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-letter { font-size: clamp(60px, 12vw, 120px); }
+  .footer { padding: 48px 0 0; }
+  .footer-bottom-inner { gap: 8px; }
 }
 
 /* ════════════════════════════

@@ -156,12 +156,14 @@
   justify-content: space-between;
   gap: 16px;
   padding: 20px 22px;
+  min-height: 44px;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
   font-family: var(--font-main, 'Inter', sans-serif);
   transition: background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cd-accordion-header:hover { background: #F9FAFB; }
@@ -398,16 +400,35 @@
   .cd-why-inner     { grid-template-columns:1fr; }
   .cd-learn-inner   { grid-template-columns:1fr; }
   .cd-faculty-card  { grid-template-columns:1fr; }
+  .cd-faculty-photo { height:240px; }
   .cd-support-inner { grid-template-columns:1fr; }
+  .cd-contact-card  { min-width: auto; }
 }
 @media (max-width:768px) {
   .cd-hero         { padding:100px 0 48px; }
-  .cd-info-card    { flex-direction:column; gap:12px; }
+  .cd-info-card    { flex-direction:column; gap:12px; padding:16px; }
   .cd-info-divider { width:100%; height:1px; }
   .cd-why-grid     { grid-template-columns:1fr; }
   .cd-prereq-card  { padding:32px 20px; transform:rotate(0); }
   .cd-prereq-grid  { grid-template-columns:1fr; }
   .cd-enroll-features { grid-template-columns:1fr; }
+  .cd-support-right { flex-direction:row; flex-wrap:wrap; }
+}
+@media (max-width:480px) {
+  .cd-hero         { padding:88px 0 40px; }
+  .cd-title        { font-size:clamp(26px,6vw,36px); }
+  .cd-subtitle     { font-size:14px; }
+  .cd-info-card    { padding:14px; gap:10px; }
+  .cd-info-item    { min-width:0; }
+  .cd-pricing-card { padding:16px; }
+  .cd-ptab         { font-size:12px; padding:7px 6px; }
+  .cd-new          { font-size:28px; }
+  .cd-enroll-meta  { grid-template-columns:1fr 1fr; }
+  .cd-prereq-card  { padding:24px 16px; }
+  .cd-faculty-photo { height:200px; }
+  .cd-support-right { flex-direction:column; }
+  .cd-contact-card  { min-width:auto; width:100%; }
+  .cd-tab-btn       { font-size:10px; padding:12px 6px; }
 }
 
 /* ══════════════════════════════════════════
@@ -512,4 +533,17 @@
   .cd-tab-panel { padding:28px 20px; }
   .cd-tab-btn { font-size:11px; padding:15px 8px; }
   .cd-tab-btn span { display:none; }
+  .cd-tab-cert-right { position:static; }
+  .cd-tab-ref-table { font-size:12px; }
+  .cd-tab-ref-table th, .cd-tab-ref-table td { padding:8px 10px; }
+}
+@media (max-width:480px) {
+  .cd-tab-panel { padding:20px 14px; }
+  .cd-tab-btn { padding:12px 4px; font-size:10px; }
+  .cd-tab-btn i { font-size:15px; }
+  .cd-tab-curriculum-summary { flex-direction:column; }
+  .cd-tab-stat { min-width:0; }
+  .cd-tab-fee-card { padding:18px 14px; }
+  .cd-tab-referral { padding:16px; }
+  .cd-tab-cert-mockup { padding:20px 14px; }
 }

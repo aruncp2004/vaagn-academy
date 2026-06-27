@@ -28,11 +28,13 @@
       --course-accent:       #1B3A6B;
       --course-accent-light: #EFF6FF;
     }
-    .cd-hero-grid {
+    /* Two-column hero: override the default centered flex layout */
+    .cd-hero-inner.cd-hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: center;
+      text-align: left;
     }
     .cd-hero-pricing {
       background: #fff;
@@ -42,8 +44,17 @@
       z-index: 2;
     }
     @media (max-width: 900px) {
-      .cd-hero-grid {
+      .cd-hero-inner.cd-hero-grid {
         grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .cd-hero-inner.cd-hero-grid .cd-info-card {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .cd-hero-inner.cd-hero-grid {
+        gap: 28px;
       }
     }
   </style>

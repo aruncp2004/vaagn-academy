@@ -180,6 +180,16 @@
   .ab-story-grid  { grid-template-columns:1fr; }
   .ab-values-grid { grid-template-columns:1fr; }
   .ab-cta-inner   { flex-direction:column; text-align:center; }
+  .ab-team-photo  { height:240px; }
+}
+@media (max-width:480px) {
+  .ab-hero        { padding:80px 0 40px; }
+  .ab-title       { font-size:clamp(28px,7vw,40px); }
+  .ab-who-stats   { grid-template-columns:1fr 1fr; }
+  .ab-factory-photos { grid-template-columns:1fr; }
+  .ab-cta-btns a  { width:100%; justify-content:center; }
+  .ab-vehicle-cards { gap:10px; }
+  .ab-team-photo  { height:200px; }
 }
 
 /* Factory photos grid in labs section */
