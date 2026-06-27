@@ -14,7 +14,7 @@ const VIEM_COURSES = {
 };
 
 const VIEM_MODES = {
-  "online":  { label: "Online",  amount: 2 },
+  "online":  { label: "Online",  amount: 11799 },
   "hybrid":  { label: "Hybrid",  amount: 20059 },
   "offline": { label: "Offline", amount: 29499 }
 };
