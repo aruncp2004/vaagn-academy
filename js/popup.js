@@ -1,10 +1,33 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
 
-// Show popup after 5 seconds
-setTimeout(() => {
-  const overlay = document.getElementById('popupOverlay');
-  if (overlay) overlay.classList.add('open');
-}, 5000);
+// Floating "Get Free Counselling" button — user-triggered popup
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.createElement('button');
+  btn.id = 'counsellingFloatBtn';
+  btn.textContent = 'Get Free Counselling';
+  btn.setAttribute('aria-label', 'Open free counselling form');
+  btn.style.cssText = [
+    'position:fixed',
+    'bottom:24px',
+    'left:24px',
+    'z-index:1000',
+    'background:#1B3A6B',
+    'color:#fff',
+    'border:none',
+    'border-radius:30px',
+    'padding:12px 20px',
+    'font-size:13px',
+    'font-weight:600',
+    'cursor:pointer',
+    'box-shadow:0 4px 16px rgba(0,0,0,0.25)',
+    'font-family:inherit',
+  ].join(';');
+  btn.addEventListener('click', () => {
+    const overlay = document.getElementById('popupOverlay');
+    if (overlay) overlay.classList.add('open');
+  });
+  document.body.appendChild(btn);
+});
 
 // Close on button or overlay click
 document.addEventListener('click', (e) => {

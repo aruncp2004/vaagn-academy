@@ -3,7 +3,6 @@
 // ══════════════════════════════════════
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
-const WHATSAPP_NUMBER   = '9384033287'; // Team WhatsApp for enrollment alerts
 
 // ── Batch option visual selection ─────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,6 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 400);
   }
+
+  // ── data-prefill-mode / data-prefill-batch delegated handlers ──
+  document.addEventListener('click', (e) => {
+    const modeLink  = e.target.closest('[data-prefill-mode]');
+    const batchLink = e.target.closest('[data-prefill-batch]');
+    if (modeLink)  prefillMode(modeLink.dataset.prefillMode);
+    if (batchLink) prefillBatch(batchLink.dataset.prefillBatch);
+  });
 });
 
 // ── Prefill helpers (pricing + batch buttons on same page) ────
@@ -73,42 +80,6 @@ async function saveToSheets(payload) {
   }
 }
 
-// ── Send WhatsApp receipt to STUDENT ─────────────────────────
-function sendStudentWhatsApp(data) {
-  const studentNumber = '91' + data.phone.replace(/\D/g, '').slice(-10);
-  const msg = encodeURIComponent(
-    `*🎉 Payment Confirmed — VIEM*\n\n` +
-    `Hi ${data.name},\n` +
-    `Your enrollment is confirmed!\n\n` +
-    `*Course:* ${data.courseName}\n` +
-    `*Mode:* ${data.modeLabel}\n` +
-    `*Batch:* ${data.batch}\n` +
-    `*Amount Paid:* ₹${Number(data.amount).toLocaleString('en-IN')}\n` +
-    `*Payment ID:* ${data.paymentId}\n\n` +
-    `Our team will contact you shortly with batch joining details.\n\n` +
-    `— Team VIEM, Vaagn Institute of Electric Mobility`
-  );
-  window.open(`https://wa.me/${studentNumber}?text=${msg}`, '_blank');
-}
-
-// ── Send WhatsApp alert to TEAM ───────────────────────────────
-function sendTeamWhatsApp(data) {
-  const msg = encodeURIComponent(
-    `*🔔 New Enrollment — VIEM*\n\n` +
-    `*Name:* ${data.name}\n` +
-    `*Phone:* +91 ${data.phone}\n` +
-    `*Email:* ${data.email}\n` +
-    `*Course:* ${data.courseName}\n` +
-    `*Mode:* ${data.modeLabel}\n` +
-    `*Batch:* ${data.batch}\n` +
-    `*Qualification:* ${data.qualification}\n` +
-    `*Amount:* ₹${Number(data.amount).toLocaleString('en-IN')}\n` +
-    `*Payment ID:* ${data.paymentId}\n` +
-    `*Time:* ${data.timestamp}`
-  );
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-}
-
 // ── Called by razorpay.js on payment success ──────────────────
 window.viemOnPaymentSuccess = async function(paymentId, formData, modeInfo) {
   const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
@@ -129,14 +100,7 @@ window.viemOnPaymentSuccess = async function(paymentId, formData, modeInfo) {
     source:        window.location.href
   };
 
-  // 1. Save to Google Sheets
   await saveToSheets(data);
-
-  // 2. WhatsApp receipt to student
-  sendStudentWhatsApp(data);
-
-  // 3. WhatsApp alert to team (slight delay)
-  setTimeout(() => sendTeamWhatsApp(data), 1500);
 };
 
 // ── Form submit → validate → Razorpay ────────────────────────
