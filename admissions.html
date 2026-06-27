@@ -17,12 +17,16 @@
   <meta name="twitter:title" content="Apply for Admission — VIEM EV Courses">
   <meta name="twitter:description" content="Batches starting July 2026. Online ₹9,999 | Hybrid ₹16,999 | Offline ₹24,999. EMI from ₹350/month.">
   <meta name="twitter:image" content="https://academy.vaagnauto.com/images/og-image.jpg">
+  <meta property="og:site_name" content="VIEM — Vaagn Institute of Electric Mobility">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/admissions.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B3A6B'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-weight='bold' font-size='18' fill='white' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -385,108 +389,7 @@
   <script src="js/admissions.js"></script>
 
   <script>
-    // ── 1. READ URL PARAMS & PRE-FILL FORM ─────────────────────────────────
-    // Course pages link here as: admissions.html?course=ev-master-class&mode=online
-    (function prefillFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      const course = params.get('course');
-      const mode   = params.get('mode');
-
-      if (course) {
-        const courseSelect = document.getElementById('field-course');
-        if (courseSelect) courseSelect.value = course;
-      }
-      if (mode) {
-        const modeSelect = document.getElementById('field-mode');
-        if (modeSelect) modeSelect.value = mode;
-      }
-
-      // If came from course page, scroll to form smoothly
-      if (course || mode) {
-        setTimeout(function() {
-          const form = document.getElementById('enroll-form');
-          if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 400);
-      }
-    })();
-
-    // ── 2. PREFILL HELPERS (called by pricing + batch buttons on this page) ─
-    function prefillMode(mode) {
-      const modeSelect = document.getElementById('field-mode');
-      if (modeSelect) modeSelect.value = mode;
-    }
-
-    function prefillBatch(batch) {
-      // batch = 'A' or 'B'
-      const value = batch === 'A'
-        ? 'Batch A — 4:30 PM to 6:30 PM'
-        : 'Batch B — 8:30 PM to 10:30 PM';
-      const radios = document.querySelectorAll('input[name="batch"]');
-      radios.forEach(function(r) {
-        if (r.value === value) r.checked = true;
-      });
-    }
-
-    // ── 3. FORM SUBMIT → VALIDATE → RAZORPAY ──────────────────────────────
-    document.getElementById('admissionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name          = document.getElementById('field-name').value.trim();
-      const email         = document.getElementById('field-email').value.trim();
-      const phone         = document.getElementById('field-phone').value.trim();
-      const qualification = document.getElementById('field-qualification').value;
-      const course        = document.getElementById('field-course').value;
-      const mode          = document.getElementById('field-mode').value;
-      const batchRadio    = document.querySelector('input[name="batch"]:checked');
-      const batch         = batchRadio ? batchRadio.value : '';
-
-      // ── Validation ──
-      if (!name) {
-        viemShowMessage('payment-msg', 'error', 'Please enter your name.');
-        return;
-      }
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        viemShowMessage('payment-msg', 'error', 'Please enter a valid email address.');
-        return;
-      }
-      if (!phone || !/^[6-9]\d{9}$/.test(phone)) {
-        viemShowMessage('payment-msg', 'error', 'Please enter a valid 10-digit Indian mobile number.');
-        return;
-      }
-      if (!qualification) {
-        viemShowMessage('payment-msg', 'error', 'Please select your qualification.');
-        return;
-      }
-      if (!course) {
-        viemShowMessage('payment-msg', 'error', 'Please select a course.');
-        return;
-      }
-      if (!mode) {
-        viemShowMessage('payment-msg', 'error', 'Please select a mode of study.');
-        return;
-      }
-      if (!batch) {
-        viemShowMessage('payment-msg', 'error', 'Please select a batch (A or B).');
-        return;
-      }
-
-      // ── Hide any old message ──
-      const msgEl = document.getElementById('payment-msg');
-      if (msgEl) msgEl.style.display = 'none';
-
-      // ── Open Razorpay ──
-      viemPay({
-        name:          name,
-        email:         email,
-        phone:         '+91' + phone,
-        qualification: qualification,
-        course:        course,
-        mode:          mode,
-        batch:         batch
-      });
-    });
-
-    // ── 4. FAQ ACCORDION ───────────────────────────────────────────────────
+    // FAQ Accordion — handled here; form submit, URL pre-fill, and helpers are in admissions.js
     document.querySelectorAll('.adm-faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item   = btn.closest('.adm-faq-item');
@@ -501,3 +404,5 @@
 
 </body>
 </html>
+
+

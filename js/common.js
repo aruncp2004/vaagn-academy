@@ -9,6 +9,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('click', (e) => {
   const toggle = e.target.closest('#mobileToggle');
   const dropdownParent = e.target.closest('.has-dropdown');
+  const navbar = document.getElementById('navbar');
 
   if (toggle) {
     const navLinks = document.getElementById('navLinks');
@@ -23,6 +24,12 @@ document.addEventListener('click', (e) => {
     }
     dropdownParent.classList.toggle('mobile-open');
     return;
+  }
+
+  // Close mobile nav when clicking outside the navbar
+  if (navbar && !navbar.contains(e.target)) {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) navLinks.classList.remove('open');
   }
 
   // Close open dropdowns when clicking outside
