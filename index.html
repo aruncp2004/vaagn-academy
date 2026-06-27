@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -770,7 +770,7 @@
             <div class="pricing-original">₹24,999</div>
             <div class="pricing-amount">₹9,999</div>
             <div class="pricing-per">per course</div>
-            <p class="adm-gst-note">+ 18% GST (₹1,800) | Total: <strong>₹11,799</strong></p>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
             <ul class="pricing-features">
               <li><i class="ti ti-check"></i> Live + Recorded Classes</li>
               <li><i class="ti ti-check"></i> Simulation Tools</li>
@@ -786,7 +786,7 @@
             <div class="pricing-original">₹39,999</div>
             <div class="pricing-amount">₹16,999</div>
             <div class="pricing-per">per course</div>
-            <p class="adm-gst-note">+ 18% GST (₹3,060) | Total: <strong>₹20,059</strong></p>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
             <ul class="pricing-features">
               <li><i class="ti ti-check"></i> Online Theory</li>
               <li><i class="ti ti-check"></i> Campus Practicals</li>
@@ -801,7 +801,7 @@
             <div class="pricing-original">₹49,999</div>
             <div class="pricing-amount">₹24,999</div>
             <div class="pricing-per">per course</div>
-            <p class="adm-gst-note">+ 18% GST (₹4,500) | Total: <strong>₹29,499</strong></p>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
             <ul class="pricing-features">
               <li><i class="ti ti-check"></i> Full Campus Access</li>
               <li><i class="ti ti-check"></i> Factory Training</li>
@@ -828,14 +828,14 @@
         <div class="batch-grid">
           <div class="batch-card">
             <div class="batch-label">Batch A</div>
-            <div class="batch-time">4:30 PM – 6:30 PM</div>
+            <div class="batch-time"><span data-batch="batchA"></span></div>
             <div class="batch-days">Monday to Saturday</div>
             <div class="batch-seats">12 seats left</div>
             <a href="admissions.html" class="btn-primary">Reserve Seat</a>
           </div>
           <div class="batch-card">
             <div class="batch-label">Batch B</div>
-            <div class="batch-time">8:30 PM – 10:30 PM</div>
+            <div class="batch-time"><span data-batch="batchB"></span></div>
             <div class="batch-days">Monday to Saturday</div>
             <div class="batch-seats">8 seats left</div>
             <a href="admissions.html" class="btn-primary">Reserve Seat</a>
@@ -877,6 +877,7 @@
     <div id="sticky-bar-placeholder"></div>
 
     <!-- JS -->
+    <script src="js/batch-config.js"></script>
     <script src="js/components.js"></script>
     <script src="js/common.js"></script>
     <script src="js/home.js"></script>

@@ -28,6 +28,24 @@
       --course-accent:       #1B3A6B;
       --course-accent-light: #EFF6FF;
     }
+    .cd-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .cd-hero-pricing {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 56px rgba(0, 0, 0, 0.28);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 900px) {
+      .cd-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -36,25 +54,75 @@
   <!-- HERO -->
   <section class="cd-hero">
     <div class="cd-hero-bg"></div>
-    <div class="container cd-hero-inner">
-      <span class="cd-eyebrow">Most Popular Course</span>
-      <h1 class="cd-title">EV MasterClass In <span class="cd-underline">30 Days</span></h1>
-      <p class="cd-subtitle">Get ready for a power-packed 30-day live EV training designed to build your skills from electrical basics to full vehicle architecture — on real Vaagn commercial EVs.</p>
-      <div class="cd-info-card">
-        <div class="cd-info-item"><span class="cd-info-label">Date of Batch</span><span class="cd-info-value">13 July – 15 Aug 2026</span></div>
-        <div class="cd-info-divider"></div>
-        <div class="cd-info-item"><span class="cd-info-label">Batch A</span><span class="cd-info-value">4:30 PM – 6:30 PM</span></div>
-        <div class="cd-info-divider"></div>
-        <div class="cd-info-item"><span class="cd-info-label">Batch B</span><span class="cd-info-value">8:30 PM – 10:30 PM</span></div>
-        <div class="cd-info-divider"></div>
-        <div class="cd-info-item"><span class="cd-info-label">Duration</span><span class="cd-info-value">34 Days (25 Lessons + 5 Practicals)</span></div>
+    <div class="container cd-hero-inner cd-hero-grid">
+      <!-- Left: existing hero content -->
+      <div class="cd-hero-left">
+        <span class="cd-eyebrow">Most Popular Course</span>
+        <h1 class="cd-title">EV MasterClass In <span class="cd-underline">30 Days</span></h1>
+        <p class="cd-subtitle">Get ready for a power-packed 30-day live EV training designed to build your skills from electrical basics to full vehicle architecture — on real Vaagn commercial EVs.</p>
+        <div class="cd-info-card">
+          <div class="cd-info-item"><span class="cd-info-label">Date of Batch</span><span class="cd-info-value"><span data-batch="date"></span></span></div>
+          <div class="cd-info-divider"></div>
+          <div class="cd-info-item"><span class="cd-info-label">Batch A</span><span class="cd-info-value"><span data-batch="batchA"></span></span></div>
+          <div class="cd-info-divider"></div>
+          <div class="cd-info-item"><span class="cd-info-label">Batch B</span><span class="cd-info-value"><span data-batch="batchB"></span></span></div>
+          <div class="cd-info-divider"></div>
+          <div class="cd-info-item"><span class="cd-info-label">Duration</span><span class="cd-info-value"><span data-batch="duration"></span></span></div>
+        </div>
+        <a href="../admissions.html?course=ev-master-class" class="cd-cta-btn">Reserve Your Spot Now</a>
       </div>
-      <a href="../admissions.html?course=ev-master-class" class="cd-cta-btn">Reserve Your Spot Now</a>
+      <!-- Right: pricing card -->
+      <div class="cd-hero-right">
+        <div class="cd-pricing-card cd-hero-pricing">
+          <div class="cd-pricing-tabs">
+            <button class="cd-ptab active" data-mode="online">Online</button>
+            <button class="cd-ptab" data-mode="hybrid">Hybrid</button>
+            <button class="cd-ptab" data-mode="offline">Offline</button>
+          </div>
+          <div class="cd-pricing-content active" data-content="online">
+            <div class="cd-pricing-header"><span class="cd-pricing-plan">Online Plan</span><span class="cd-offer-badge">60% OFF</span></div>
+            <div class="cd-pricing-amount"><span class="cd-original">&#8377;24,999</span><span class="cd-new">&#8377;9,999<span class="cd-slash">/-</span></span></div>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
+            <ul class="cd-pricing-features">
+              <li><i class="ti ti-check"></i>One Time Payment</li>
+              <li><i class="ti ti-check"></i>Industry Certificate</li>
+              <li><i class="ti ti-check"></i>Live + Recorded Classes</li>
+              <li><i class="ti ti-check"></i>WhatsApp Support</li>
+            </ul>
+            <a href="../admissions.html?course=ev-master-class&mode=online" class="cd-enroll-btn">Enroll Now</a>
+          </div>
+          <div class="cd-pricing-content" data-content="hybrid">
+            <div class="cd-pricing-header"><span class="cd-pricing-plan">Hybrid Plan</span><span class="cd-offer-badge">57% OFF</span></div>
+            <div class="cd-pricing-amount"><span class="cd-original">&#8377;39,999</span><span class="cd-new">&#8377;16,999<span class="cd-slash">/-</span></span></div>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
+            <ul class="cd-pricing-features">
+              <li><i class="ti ti-check"></i>One Time Payment</li>
+              <li><i class="ti ti-check"></i>Industry Certificate</li>
+              <li><i class="ti ti-check"></i>Online Theory + Campus Practicals</li>
+              <li><i class="ti ti-check"></i>Lab Access</li>
+            </ul>
+            <a href="../admissions.html?course=ev-master-class&mode=hybrid" class="cd-enroll-btn">Enroll Now</a>
+          </div>
+          <div class="cd-pricing-content" data-content="offline">
+            <div class="cd-pricing-header"><span class="cd-pricing-plan">Offline Plan</span><span class="cd-offer-badge">50% OFF</span></div>
+            <div class="cd-pricing-amount"><span class="cd-original">&#8377;49,999</span><span class="cd-new">&#8377;24,999<span class="cd-slash">/-</span></span></div>
+            <p class="adm-gst-note">+ 18% GST applicable</p>
+            <ul class="cd-pricing-features">
+              <li><i class="ti ti-check"></i>One Time Payment</li>
+              <li><i class="ti ti-check"></i>Industry Certificate</li>
+              <li><i class="ti ti-check"></i>Full Campus Access</li>
+              <li><i class="ti ti-check"></i>Factory Training</li>
+              <li><i class="ti ti-check"></i>Priority Placement</li>
+            </ul>
+            <a href="../admissions.html?course=ev-master-class&mode=offline" class="cd-enroll-btn">Enroll Now</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- COURSE INFO TABS -->
-  <!-- <section class="cd-info-tabs-section">
+  <section class="cd-info-tabs-section">
     <div class="container">
 
       <div class="cd-tab-bar" role="tablist">
@@ -183,7 +251,7 @@
               <div class="cd-tab-fee-icon"><i class="ti ti-device-laptop"></i></div>
               <div class="cd-tab-fee-original">&#8377;24,999</div>
               <div class="cd-tab-fee-amount"><sup>&#8377;</sup>9,999<span class="slash">/-</span></div>
-              <p class="adm-gst-note">+ 18% GST (₹1,800) | Total: <strong>₹11,799</strong></p>
+              <p class="adm-gst-note">+ 18% GST applicable</p>
               <div class="cd-tab-fee-off">60% OFF</div>
               <ul class="cd-tab-fee-features">
                 <li><i class="ti ti-check"></i>One Time Payment</li>
@@ -201,7 +269,7 @@
               <div class="cd-tab-fee-icon"><i class="ti ti-building-community"></i></div>
               <div class="cd-tab-fee-original">&#8377;39,999</div>
               <div class="cd-tab-fee-amount"><sup>&#8377;</sup>16,999<span class="slash">/-</span></div>
-              <p class="adm-gst-note">+ 18% GST (₹3,060) | Total: <strong>₹20,059</strong></p>
+              <p class="adm-gst-note">+ 18% GST applicable</p>
               <div class="cd-tab-fee-off">57% OFF</div>
               <ul class="cd-tab-fee-features">
                 <li><i class="ti ti-check"></i>One Time Payment</li>
@@ -218,7 +286,7 @@
               <div class="cd-tab-fee-icon"><i class="ti ti-building-factory"></i></div>
               <div class="cd-tab-fee-original">&#8377;49,999</div>
               <div class="cd-tab-fee-amount"><sup>&#8377;</sup>24,999<span class="slash">/-</span></div>
-              <p class="adm-gst-note">+ 18% GST (₹4,500) | Total: <strong>₹29,499</strong></p>
+              <p class="adm-gst-note">+ 18% GST applicable</p>
               <div class="cd-tab-fee-off">50% OFF</div>
               <ul class="cd-tab-fee-features">
                 <li><i class="ti ti-check"></i>One Time Payment</li>
@@ -313,11 +381,11 @@
 
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- END COURSE INFO TABS -->
 
    <!-- WHAT YOU'LL LEARN -->
-  <section class="cd-learn section">
+  <!-- <section class="cd-learn section">
     <div class="container">
       <h2 class="cd-learn-title">What you'll learn?</h2>
       <p class="cd-learn-sub">Build your EV foundation. Master electrical fundamentals, battery systems, motors and controllers — the skills every EV industry job requires.</p>
@@ -340,11 +408,11 @@
             </div>
           </div>
 
-          <!-- Module 1 -->
+         
           <div class="cd-curriculum-card cd-accordion cd-accordion-open">
             <button class="cd-accordion-header">
               <div class="cd-accordion-header-left">
-                <span class="cd-curriculum-week">Week 1 (13–18 July)</span>
+                <span class="cd-curriculum-week">Week 1 </span>
                 <h3 class="cd-curriculum-title cd-accent">EV Industry, Architecture &amp; Fundamentals</h3>
               </div>
               <div class="cd-accordion-meta">
@@ -365,11 +433,10 @@
             </div>
           </div>
 
-          <!-- Module 2 -->
           <div class="cd-curriculum-card cd-accordion">
             <button class="cd-accordion-header">
               <div class="cd-accordion-header-left">
-                <span class="cd-curriculum-week">Week 2 (20–25 July)</span>
+                <span class="cd-curriculum-week">Week 2 </span>
                 <h3 class="cd-curriculum-title cd-accent-amber">Battery Technology &amp; Manufacturing</h3>
               </div>
               <div class="cd-accordion-meta">
@@ -390,11 +457,10 @@
             </div>
           </div>
 
-          <!-- Module 3 -->
           <div class="cd-curriculum-card cd-accordion">
             <button class="cd-accordion-header">
               <div class="cd-accordion-header-left">
-                <span class="cd-curriculum-week">Week 3 (27 July – 1 Aug)</span>
+                <span class="cd-curriculum-week">Week 3 </span>
                 <h3 class="cd-curriculum-title cd-accent">BMS, Charging &amp; Diagnostics</h3>
               </div>
               <div class="cd-accordion-meta">
@@ -419,11 +485,11 @@
 
         <div class="cd-learn-right">
 
-          <!-- Module 4 -->
+       
           <div class="cd-curriculum-card cd-accordion">
             <button class="cd-accordion-header">
               <div class="cd-accordion-header-left">
-                <span class="cd-curriculum-week">Week 4 (3–8 Aug)</span>
+                <span class="cd-curriculum-week">Week 4 </span>
                 <h3 class="cd-curriculum-title cd-accent">Motors, Controllers &amp; Performance</h3>
               </div>
               <div class="cd-accordion-meta">
@@ -444,11 +510,11 @@
             </div>
           </div>
 
-          <!-- Module 5 -->
+          
           <div class="cd-curriculum-card cd-accordion">
             <button class="cd-accordion-header">
               <div class="cd-accordion-header-left">
-                <span class="cd-curriculum-week">Week 5 (10–15 Aug)</span>
+                <span class="cd-curriculum-week">Week 5</span>
                 <h3 class="cd-curriculum-title cd-accent-amber">Manufacturing, Standards &amp; Career</h3>
               </div>
               <div class="cd-accordion-meta">
@@ -469,11 +535,11 @@
             </div>
           </div>
 
-          <!-- Quick stats card -->
+         
           <div class="cd-curriculum-card" style="background:#EFF6FF;border-color:#1B3A6B;">
             <h3 class="cd-curriculum-title cd-accent" style="margin-bottom:16px;">Course at a Glance</h3>
             <ul class="cd-lessons">
-              <li><span class="cd-lesson-num"><i class="ti ti-calendar"></i></span>13 July – 15 August 2026</li>
+              <li><span class="cd-lesson-num"><i class="ti ti-calendar"></i></span>Week 1 – week 5 </li>
               <li><span class="cd-lesson-num"><i class="ti ti-book"></i></span>25 lessons across 5 weeks</li>
               <li><span class="cd-lesson-num"><i class="ti ti-tool"></i></span>5 hands-on practicals</li>
               <li><span class="cd-lesson-num"><i class="ti ti-flag"></i></span>1 OEM capstone project</li>
@@ -485,7 +551,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- VIDEO
   <section class="cd-video-section">
     <div class="cd-video-bg"></div>
@@ -513,78 +579,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ENROLLMENT + PRICING -->
-  <section class="cd-enroll">
-    <div class="container cd-enroll-inner">
-      <div class="cd-enroll-left">
-        <h2 class="cd-enroll-title">Enrollment is now open<br>for you to begin</h2>
-        <p class="cd-enroll-sub">Build your EV career with hands-on daily sessions — get job-ready with confidence!</p>
-        <hr class="cd-enroll-rule">
-        <div class="cd-enroll-meta">
-          <div class="cd-enroll-meta-item"><span class="cd-enroll-meta-label">DATE OF BATCH</span><span class="cd-enroll-meta-val">July 13 – 2026</span></div>
-          <div class="cd-enroll-meta-item"><span class="cd-enroll-meta-label">Batch A</span><span class="cd-enroll-meta-val">4:30 – 6:30 PM</span></div>
-          <div class="cd-enroll-meta-item"><span class="cd-enroll-meta-label">Batch B</span><span class="cd-enroll-meta-val">8:30 – 10:30 PM</span></div>
-          <div class="cd-enroll-meta-item"><span class="cd-enroll-meta-label">Duration</span><span class="cd-enroll-meta-val">30 Days</span></div>
-        </div>
-        <div class="cd-enroll-features">
-          <div class="cd-enroll-feat"><i class="ti ti-bolt"></i><span>Boost Your EV Career</span></div>
-          <div class="cd-enroll-feat"><i class="ti ti-tool"></i><span>Real World Practice</span></div>
-          <div class="cd-enroll-feat"><i class="ti ti-certificate"></i><span>Industry Certification</span></div>
-          <div class="cd-enroll-feat"><i class="ti ti-car"></i><span>Hands-On EV Experience</span></div>
-        </div>
-      </div>
-      <div class="cd-pricing-card">
-        <div class="cd-pricing-tabs">
-          <button class="cd-ptab active" data-mode="online">Online</button>
-          <button class="cd-ptab" data-mode="hybrid">Hybrid</button>
-          <button class="cd-ptab" data-mode="offline">Offline</button>
-        </div>
-        <div class="cd-pricing-content active" data-content="online">
-          <div class="cd-pricing-header"><span class="cd-pricing-plan">Online Plan</span><span class="cd-offer-badge">60% OFF</span></div>
-          <div class="cd-pricing-amount"><span class="cd-original">&#8377;24,999</span><span class="cd-new">&#8377;9,999<span class="cd-slash">/-</span></span></div>
-          <p class="adm-gst-note">+ 18% GST (₹1,800) | Total: <strong>₹11,799</strong></p>
-          <ul class="cd-pricing-features">
-            <li><i class="ti ti-check"></i>One Time Payment</li>
-            <li><i class="ti ti-check"></i>Industry Certificate</li>
-            <li><i class="ti ti-check"></i>Live + Recorded Classes</li>
-            <li><i class="ti ti-check"></i>WhatsApp Support</li>
-          </ul>
-          <a href="../admissions.html?course=ev-master-class&mode=online" class="cd-enroll-btn">Enroll Now &#8211; &#8377;11,799 (incl. GST)</a>
-          <div class="cd-social-proof"><div class="cd-avatars"><div class="cd-avatar">A</div><div class="cd-avatar">B</div><div class="cd-avatar">C</div><div class="cd-avatar">D</div></div><span>+180 Already enrolled this month</span></div>
-        </div>
-        <div class="cd-pricing-content" data-content="hybrid">
-          <div class="cd-pricing-header"><span class="cd-pricing-plan">Hybrid Plan</span><span class="cd-offer-badge">57% OFF</span></div>
-          <div class="cd-pricing-amount"><span class="cd-original">&#8377;39,999</span><span class="cd-new">&#8377;16,999<span class="cd-slash">/-</span></span></div>
-          <p class="adm-gst-note">+ 18% GST (₹3,060) | Total: <strong>₹20,059</strong></p>
-          <ul class="cd-pricing-features">
-            <li><i class="ti ti-check"></i>One Time Payment</li>
-            <li><i class="ti ti-check"></i>Industry Certificate</li>
-            <li><i class="ti ti-check"></i>Online Theory + Campus Practicals</li>
-            <li><i class="ti ti-check"></i>Lab Access</li>
-          </ul>
-          <a href="../admissions.html?course=ev-master-class&mode=hybrid" class="cd-enroll-btn">Enroll Now &#8211; &#8377;20,059 (incl. GST)</a>
-          <div class="cd-social-proof"><div class="cd-avatars"><div class="cd-avatar">A</div><div class="cd-avatar">B</div><div class="cd-avatar">C</div><div class="cd-avatar">D</div></div><span>+180 Already enrolled this month</span></div>
-        </div>
-        <div class="cd-pricing-content" data-content="offline">
-          <div class="cd-pricing-header"><span class="cd-pricing-plan">Offline Plan</span><span class="cd-offer-badge">50% OFF</span></div>
-          <div class="cd-pricing-amount"><span class="cd-original">&#8377;49,999</span><span class="cd-new">&#8377;24,999<span class="cd-slash">/-</span></span></div>
-          <p class="adm-gst-note">+ 18% GST (₹4,500) | Total: <strong>₹29,499</strong></p>
-          <ul class="cd-pricing-features">
-            <li><i class="ti ti-check"></i>One Time Payment</li>
-            <li><i class="ti ti-check"></i>Industry Certificate</li>
-            <li><i class="ti ti-check"></i>Full Campus Access</li>
-            <li><i class="ti ti-check"></i>Factory Training</li>
-            <li><i class="ti ti-check"></i>Priority Placement</li>
-          </ul>
-          <a href="../admissions.html?course=ev-master-class&mode=offline" class="cd-enroll-btn">Enroll Now &#8211; &#8377;29,499 (incl. GST)</a>
-          <div class="cd-social-proof"><div class="cd-avatars"><div class="cd-avatar">A</div><div class="cd-avatar">B</div><div class="cd-avatar">C</div><div class="cd-avatar">D</div></div><span>+180 Already enrolled this month</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
- 
 
   <!-- PREREQUISITES -->
   <section class="cd-prereq-section">
@@ -652,6 +646,7 @@
   <div id="popup-placeholder"></div>
   <div id="sticky-bar-placeholder"></div>
 
+  <script src="../js/batch-config.js"></script>
   <script src="../js/components.js"></script>
   <script src="../js/common.js"></script>
   <script src="../js/popup.js"></script>

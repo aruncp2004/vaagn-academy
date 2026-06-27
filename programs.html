@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -287,13 +287,13 @@
         <div class="prog-batch-cards">
           <div class="prog-batch-card">
             <div class="prog-batch-label">Batch A</div>
-            <div class="prog-batch-time">4:30 PM – 6:30 PM</div>
+            <div class="prog-batch-time"><span data-batch="batchA"></span></div>
             <div class="prog-batch-days">Monday to Saturday</div>
             <div class="prog-batch-seats"><span class="prog-live-dot"></span> Only 12 seats left</div>
           </div>
           <div class="prog-batch-card">
             <div class="prog-batch-label">Batch B</div>
-            <div class="prog-batch-time">8:30 PM – 10:30 PM</div>
+            <div class="prog-batch-time"><span data-batch="batchB"></span></div>
             <div class="prog-batch-days">Monday to Saturday</div>
             <div class="prog-batch-seats"><span class="prog-live-dot"></span> Only 8 seats left</div>
           </div>
@@ -309,7 +309,7 @@
               <div class="prog-mode-name">Online</div>
               <div class="prog-mode-desc">Live + recorded classes, simulation tools</div>
             </div>
-            <div class="prog-mode-price">₹9,999<p class="adm-gst-note">+ 18% GST | Total: <strong>₹11,799</strong></p></div>
+            <div class="prog-mode-price">₹9,999<p class="adm-gst-note">+ 18% GST applicable</p></div>
           </div>
           <div class="prog-mode-item prog-mode-recommended">
             <div class="prog-mode-rec-badge">Recommended</div>
@@ -318,7 +318,7 @@
               <div class="prog-mode-name">Hybrid</div>
               <div class="prog-mode-desc">Online theory + campus practicals</div>
             </div>
-            <div class="prog-mode-price">₹16,999<p class="adm-gst-note">+ 18% GST | Total: <strong>₹20,059</strong></p></div>
+            <div class="prog-mode-price">₹16,999<p class="adm-gst-note">+ 18% GST applicable</p></div>
           </div>
           <div class="prog-mode-item">
             <div class="prog-mode-icon"><i class="ti ti-building-factory"></i></div>
@@ -326,7 +326,7 @@
               <div class="prog-mode-name">Offline</div>
               <div class="prog-mode-desc">Full campus + factory training</div>
             </div>
-            <div class="prog-mode-price">₹24,999<p class="adm-gst-note">+ 18% GST | Total: <strong>₹29,499</strong></p></div>
+            <div class="prog-mode-price">₹24,999<p class="adm-gst-note">+ 18% GST applicable</p></div>
           </div>
         </div>
         <a href="admissions.html" class="prog-apply-btn">Apply Now <i class="ti ti-arrow-right"></i></a>
@@ -354,6 +354,7 @@
   <div id="popup-placeholder"></div>
   <div id="sticky-bar-placeholder"></div>
 
+  <script src="js/batch-config.js"></script>
   <script src="js/components.js"></script>
   <script src="js/common.js"></script>
   <script src="js/programs.js"></script>
