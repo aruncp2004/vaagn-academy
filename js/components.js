@@ -26,6 +26,13 @@ function rewriteComponentLinks(container, isSubfolder) {
 
     link.setAttribute('href', hash ? `${rewrittenPath}#${hash}` : rewrittenPath);
   });
+
+  container.querySelectorAll('img[src]').forEach((img) => {
+    const src = img.getAttribute('src');
+    // Skip absolute, protocol-relative, and root-relative paths
+    if (!src || /^(?:[a-z]+:|\/\/|\/)/i.test(src)) return;
+    if (!src.startsWith('../')) img.setAttribute('src', `../${src}`);
+  });
 }
 
 async function loadComponent(id, file, isSubfolder) {
