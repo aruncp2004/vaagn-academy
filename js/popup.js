@@ -1,6 +1,6 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
 
-let popupInterval = null;
+let popupInterval = off;
 
 function openPopup() {
   if (sessionStorage.getItem('viem_popup_submitted')) return;

@@ -152,15 +152,65 @@
 }
 
 @media (max-width: 480px) {
-  .hero { padding: 90px 0 48px; }
+  .hero { padding: 90px 0 10px; }
   #typing-text { min-width: 100px; }
-  .hero-title { font-size: clamp(28px, 7vw, 40px); }
+  .hero-title { font-size: clamp(15px, 5vw, 30px); }
   .hero-subtitle { font-size: 15px; }
   .hero-stats { gap: 20px; }
-  .hero-btns { gap: 10px; }
+  .hero-btns { gap: 10px; display: flex;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;          /* Space between buttons */
+    align-items: flex-start; /* Left align */
+    margin-top: 40px;        /* Space above the buttons */
+  }
+ 
+.hero-subtitle{display: none}
+
   .hero-btns .btn-primary,
   .hero-btns .btn-secondary,
-  .hero-btns .btn-secondary1 { width: 100%; justify-content: center; }
+  .hero-btns .btn-primary,
+.hero-btns .btn-secondary1 {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+    width: auto !important;
+    min-width: auto !important;
+    display: inline-flex;
+    align-items: center;
+}
+  .hero-stats {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap; /* Keeps all items in one row */
+    font-size: 1px; /* Adjust font size for smaller screens */
+    
+}
+
+.hero-stat {
+    flex: 1;
+    text-align: center;
+     /* Reduce gap between number and label */
+
+}
+.hero-stat .stat-num {
+    font-size: 1rem;
+}
+
+.hero-stat .stat-label {
+    font-size: 0.75rem;
+}
+  .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/faculty/factory2.jpeg');
+  background-size: cover;
+  background-position:  right ;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
 }
 
 /* ═══════════════════════════════

@@ -96,8 +96,8 @@
 }
 
 .nav-brand {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 900;
   color: #1B3A6B;
   letter-spacing: 0.5px;
 }
@@ -121,13 +121,16 @@
   .nav-brand-sub {
     display: none;
   }
+   .nav-brand {
+  display: none;
+}
 }
 
 @media (max-width: 480px) {
   .nav-logo img {
-    height: 28px !important;
-    max-height: 28px !important;
-    max-width: 70px !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    max-width: 80px !important;
   }
   .nav-brand {
     font-size: 13px;
@@ -135,6 +138,10 @@
   .nav-logo {
     gap: 6px;
   }
+  .nav-brand {
+  display: none;
+}
+  
 }
 
 .logo-name {
