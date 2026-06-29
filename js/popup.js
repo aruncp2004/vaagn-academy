@@ -1,7 +1,55 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykyEt4PWG3wSIEm6VwvDXPBHyD5ouyyRW5dxkAcbJhgKRAvr8cdh66ujySBls6fyqq5A/exec';
 
-// Floating "Get Free Counselling" button — user-triggered popup
-document.addEventListener('DOMContentLoaded', () => {
+let popupInterval = null;
+
+function openPopup() {
+  if (sessionStorage.getItem('viem_popup_submitted')) return;
+  const overlay = document.getElementById('popupOverlay');
+  if (overlay && !overlay.classList.contains('open')) {
+    overlay.classList.add('open');
+  }
+}
+
+function startPopupCycle() {
+  if (sessionStorage.getItem('viem_popup_submitted')) return;
+  // Show after 8 seconds first time
+  setTimeout(() => {
+    openPopup();
+    // Then repeat every 30 seconds if not submitted
+    popupInterval = setInterval(() => {
+      if (sessionStorage.getItem('viem_popup_submitted')) {
+        clearInterval(popupInterval);
+        return;
+      }
+      openPopup();
+    }, 30000);
+  }, 8000);
+}
+
+// Works whether loaded statically (before DOMContentLoaded) or dynamically (after).
+function onReady(fn) {
+  if (document.readyState !== 'loading') fn();
+  else document.addEventListener('DOMContentLoaded', fn);
+}
+
+onReady(() => {
+  startPopupCycle();
+
+  // Exit intent — mouse leaves top of window
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) openPopup();
+  }, { once: true });
+
+  // Scroll 50% down page
+  window.addEventListener('scroll', function onScroll() {
+    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    if (scrollPercent >= 50) {
+      openPopup();
+      window.removeEventListener('scroll', onScroll);
+    }
+  });
+
+  // ── Floating "Get Free Counselling" button ──────────────────
   const btn = document.createElement('button');
   btn.id = 'counsellingFloatBtn';
   btn.textContent = 'Get Free Counselling';
@@ -22,14 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'box-shadow:0 4px 16px rgba(0,0,0,0.25)',
     'font-family:inherit',
   ].join(';');
-  btn.addEventListener('click', () => {
-    const overlay = document.getElementById('popupOverlay');
-    if (overlay) overlay.classList.add('open');
-  });
+  btn.addEventListener('click', openPopup);
   document.body.appendChild(btn);
 });
 
-// Close on button or overlay click
+// ── Close popup ───────────────────────────────────────────────
 document.addEventListener('click', (e) => {
   const overlay = document.getElementById('popupOverlay');
   if (!overlay) return;
@@ -38,7 +83,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Close button on thank you state
+// ── Close thank you state ─────────────────────────────────────
 document.addEventListener('click', (e) => {
   if (e.target.id === 'popupTyClose') {
     const overlay = document.getElementById('popupOverlay');
@@ -50,7 +95,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Handle popup form submit
+// ── Handle popup form submit ──────────────────────────────────
 document.addEventListener('submit', async (e) => {
   if (e.target.id !== 'popupForm') return;
   e.preventDefault();
@@ -69,7 +114,6 @@ document.addEventListener('submit', async (e) => {
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
-  // Send to Google Sheets only
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
@@ -79,7 +123,9 @@ document.addEventListener('submit', async (e) => {
     });
   } catch(err) { console.warn(err); }
 
-  // Show thank you inside popup
+  sessionStorage.setItem('viem_popup_submitted', '1');
+  clearInterval(popupInterval);
+
   const formEl = document.getElementById('popupForm');
   const tyEl   = document.getElementById('popupThankyou');
   if (formEl) formEl.style.display = 'none';

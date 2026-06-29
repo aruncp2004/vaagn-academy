@@ -53,6 +53,12 @@ const componentBase = isSubfolder ? '../components/' : 'components/';
 Promise.all([
   loadComponent('navbar-placeholder', `${componentBase}nav.html`, isSubfolder),
   loadComponent('footer-placeholder', `${componentBase}footer.html`, isSubfolder),
-  loadComponent('popup-placeholder', `${componentBase}popup.html`, isSubfolder),
   loadComponent('sticky-bar-placeholder', `${componentBase}sticky-bar.html`, isSubfolder),
 ]);
+
+// Load popup HTML then inject popup.js so the script always runs after the overlay exists.
+loadComponent('popup-placeholder', `${componentBase}popup.html`, isSubfolder).then(() => {
+  const s = document.createElement('script');
+  s.src = (isSubfolder ? '../' : '') + 'js/popup.js';
+  document.body.appendChild(s);
+});
