@@ -7,6 +7,9 @@ Allow: /
 # Don't index thank-you page (no SEO value)
 Disallow: /thank-you.html
 
+# Legal pages are allowed (covered by Allow: / above)
+# privacy-policy.html, terms-conditions.html, refund-policy.html — all indexable
+
 # Don't index js/css/image folders
 Disallow: /js/
 Disallow: /css/

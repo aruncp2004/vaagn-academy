@@ -128,8 +128,8 @@
 
 @media (max-width: 480px) {
   .nav-logo img {
-    height: 38px !important;
-    max-height: 38px !important;
+    height: 28px !important;
+    max-height: 28px !important;
     max-width: 80px !important;
   }
   .nav-brand {
@@ -590,7 +590,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.08);

@@ -97,4 +97,27 @@
     <priority>0.8</priority>
   </url>
 
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://academy.vaagnauto.com/privacy-policy.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://academy.vaagnauto.com/terms-conditions.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://academy.vaagnauto.com/refund-policy.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
