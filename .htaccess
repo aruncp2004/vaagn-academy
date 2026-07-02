@@ -1,7 +1,6 @@
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html .css .js
 
-# Security Headers
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
