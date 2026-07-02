@@ -10,22 +10,16 @@ Header always set X-XSS-Protection "1; mode=block"
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 
 RewriteEngine On
-
-# 1. HTTPS redirect
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-
-# Prevent directory listing
 Options -Indexes
 
-# Prevent access to hidden files
 <FilesMatch "^\.">
   Order allow,deny
   Deny from all
 </FilesMatch>
 
-# Cache Control
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
